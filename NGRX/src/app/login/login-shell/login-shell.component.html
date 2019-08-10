@@ -1,0 +1,12 @@
+<div style="text-align:center">
+  <div>
+    <label>
+      Default Mode <input class="form-check-input" type="checkbox" [checked]="defaultMode" (change)="checkChanged($event.target.checked)"> 
+    </label>
+  </div>
+  <ng-container *ngIf="defaultMode">
+      <div *ngIf="agenInfo?.hasLoggedin">Agent {{agenInfo.loggedinAgent.employeeId}} has loggedIn</div>
+      <app-login [version]="appVersion" (performLogin)="doLogin($event)"></app-login>
+    
+  </ng-container>
+</div>
