@@ -2,7 +2,6 @@ function runObjectExtensions() {
     console.log("Running Object Extensions");
     runSymbolExamples();
     runWellKnownSymbolExamples();
-    runObjectExtensionExamples();
 }
 
 function runSymbolExamples(){
@@ -43,6 +42,7 @@ function runSymbolExamples(){
 }
 
 function runWellKnownSymbolExamples(){
+    debugger;
     //Class Wtih out Well Known Symbol
     let Blog = function(){};
     let blog = new Blog();
@@ -71,79 +71,12 @@ function runWellKnownSymbolExamples(){
     // Adding Value to Array with Well Known Symbols
     let someValuesNew = [1,2,3];
     someValuesNew[Symbol.toPrimitive] = function(hint) {
+        debugger;
         console.log(hint);
         return 42;
     };
     let sumNew = someValuesNew + 10;
     console.log(sumNew);
-}
 
-function runObjectExtensionExamples(){
-    debugger;
-    //setProtoTypeOf example
-    let a = {x:1};
-    let b = {y:2};
-    Object.setPrototypeOf(a,b);
-    console.log(a.y);
 
-    //Object.assign example
-    let a_new = {a:1};
-    let b_new = {b:2};
-    let target = {c:3};
-    Object.assign(target, a_new, b_new);
-    console.log(target);
-
-    //Another Object.assign example
-    let a_another = {a:1};
-    let b_another = {a:5,b:2};
-    let target_another = {c:3};
-    Object.assign(target_another, a_another, b_another);
-    console.log(target_another);
-
-    //Object.defineProperty example
-    let a_onemore = {a:1},
-        b_onemore = {b:2},
-        target_onemore = {};
-    
-    Object.defineProperty(b,'c', {
-        value:10,
-        enumerable:false
-    });
-
-    Object.assign(target_onemore, a_onemore, b_onemore);
-    console.log(target_onemore);
-
-    //Object.assign and Object.prototypeOf combine example
-    let a_again = {a:1},
-        b_again= {b:2},
-        c_again= {c:3},
-        target_again={};
-    Object.setPrototypeOf(b_again,c_again);
-    Object.assign(target_again, a_again,b_again);
-    console.log(target_again);
-
-    //Nan Comparision example
-    let amount = NaN;
-    console.log(amount===amount);
-
-    //Object.is for Nan
-    let amount_new = NaN;
-    console.log(Object.is(amount_new,amount_new));
-
-    //comparing -0 with 0
-    let amount_another = 0,
-        total_another = -0;
-    console.log(amount_another===total_another);
-
-    //comparing -0 with 0 with Object.is
-    let amount_again = 0,
-        total_again = -0;
-    console.log(Object.is(amount_again, total_again));
-
-    //Object.getOwnPropertySymbols
-    let article = {
-        title: 'My Blog',
-        [Symbol.for('article')]:'My artcile'
-    }
-    console.log(Object.getOwnPropertySymbols(article));
 }

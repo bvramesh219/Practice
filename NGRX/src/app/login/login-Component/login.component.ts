@@ -4,12 +4,12 @@ import { Agent } from '../agent';
 
 
 @Component({
-  selector: 'app-login',
+  selector: 'compass-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-  title:string = "App Login";
+  title:string = "Compass Login";
   @Input() version:string;
   
   @Output() performLogin:EventEmitter<Agent> = new EventEmitter<Agent>();

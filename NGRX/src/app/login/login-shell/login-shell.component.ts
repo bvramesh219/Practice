@@ -15,7 +15,7 @@ import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 export class LoginShellComponent implements OnInit {
   defaultMode:boolean = true;
   isActive:boolean = true;
-  appVersion:string = "5.2";
+  compassVersion:string = "R5.2";
   agenInfo:LoginInfo=null;
   hasLoggedIn$: Observable<boolean>;
   agent:Agent;

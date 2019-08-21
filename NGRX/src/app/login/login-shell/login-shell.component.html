@@ -6,7 +6,7 @@
   </div>
   <ng-container *ngIf="defaultMode">
       <div *ngIf="agenInfo?.hasLoggedin">Agent {{agenInfo.loggedinAgent.employeeId}} has loggedIn</div>
-      <app-login [version]="appVersion" (performLogin)="doLogin($event)"></app-login>
+      <compass-login [version]="compassVersion" (performLogin)="doLogin($event)"></compass-login>
     
   </ng-container>
 </div>

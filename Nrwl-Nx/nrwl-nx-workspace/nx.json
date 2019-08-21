@@ -7,5 +7,18 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "initial-booking": {
+      "tags": []
+    },
+    "initial-booking-e2e": {
+      "tags": []
+    },
+    "upgrade-tool": {
+      "tags": []
+    },
+    "upgrade-tool-e2e": {
+      "tags": []
+    }
+  }
 }

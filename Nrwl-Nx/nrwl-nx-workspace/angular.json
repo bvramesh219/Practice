@@ -2,13 +2,261 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "",
-  "projects": {},
+  "projects": {
+    "initial-booking": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/initial-booking",
+      "sourceRoot": "apps/initial-booking/src",
+      "prefix": "nrwl-nx-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/initial-booking",
+            "index": "apps/initial-booking/src/index.html",
+            "main": "apps/initial-booking/src/main.ts",
+            "polyfills": "apps/initial-booking/src/polyfills.ts",
+            "tsConfig": "apps/initial-booking/tsconfig.app.json",
+            "assets": [
+              "apps/initial-booking/src/favicon.ico",
+              "apps/initial-booking/src/assets"
+            ],
+            "styles": ["apps/initial-booking/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/initial-booking/src/environments/environment.ts",
+                  "with": "apps/initial-booking/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "initial-booking:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "initial-booking:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "initial-booking:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/initial-booking/tsconfig.app.json",
+              "apps/initial-booking/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/initial-booking/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/initial-booking/src/test.ts",
+            "tsConfig": "apps/initial-booking/tsconfig.spec.json",
+            "karmaConfig": "apps/initial-booking/karma.conf.js",
+            "polyfills": "apps/initial-booking/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        }
+      }
+    },
+    "initial-booking-e2e": {
+      "root": "apps/initial-booking-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/initial-booking-e2e/protractor.conf.js",
+            "devServerTarget": "initial-booking:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "initial-booking:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/initial-booking-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/initial-booking-e2e/**"]
+          }
+        }
+      }
+    },
+    "upgrade-tool": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/workspace:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/upgrade-tool",
+      "sourceRoot": "apps/upgrade-tool/src",
+      "prefix": "nrwl-nx-workspace",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/upgrade-tool",
+            "index": "apps/upgrade-tool/src/index.html",
+            "main": "apps/upgrade-tool/src/main.ts",
+            "polyfills": "apps/upgrade-tool/src/polyfills.ts",
+            "tsConfig": "apps/upgrade-tool/tsconfig.app.json",
+            "assets": [
+              "apps/upgrade-tool/src/favicon.ico",
+              "apps/upgrade-tool/src/assets"
+            ],
+            "styles": ["apps/upgrade-tool/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/upgrade-tool/src/environments/environment.ts",
+                  "with": "apps/upgrade-tool/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "upgrade-tool:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "upgrade-tool:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "upgrade-tool:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/upgrade-tool/tsconfig.app.json",
+              "apps/upgrade-tool/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/upgrade-tool/**"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/upgrade-tool/src/test.ts",
+            "tsConfig": "apps/upgrade-tool/tsconfig.spec.json",
+            "karmaConfig": "apps/upgrade-tool/karma.conf.js",
+            "polyfills": "apps/upgrade-tool/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        }
+      }
+    },
+    "upgrade-tool-e2e": {
+      "root": "apps/upgrade-tool-e2e",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/upgrade-tool-e2e/protractor.conf.js",
+            "devServerTarget": "upgrade-tool:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "upgrade-tool:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/upgrade-tool-e2e/tsconfig.e2e.json",
+            "exclude": ["**/node_modules/**", "!apps/upgrade-tool-e2e/**"]
+          }
+        }
+      }
+    }
+  },
   "cli": {
     "warnings": {
       "typescriptMismatch": false,
       "versionMismatch": false
     },
-    "defaultCollection": "@nrwl/workspace"
+    "defaultCollection": "@nrwl/angular"
   },
-  "schematics": {}
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "protractor"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "karma"
+    }
+  },
+  "defaultProject": "initial-booking"
 }
