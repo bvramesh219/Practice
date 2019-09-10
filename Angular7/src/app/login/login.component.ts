@@ -11,15 +11,16 @@ import { CommonDataService } from '../services/common-data.service';
 export class LoginComponent implements OnInit {
   title = 'Compass Login';
   version = 'R5.1';
-  constructor(private router: Router, commonData: CommonDataService) { }
+  constructor(private router: Router,
+              private commonData: CommonDataService) {
+              }
 
   ngOnInit() {
   }
 
   loginClick(): void {
-    debugger;
-    CommonDataService.authenticateUser();
-    this.router.navigate(['/globalNav']);
+    this.commonData.authenticateUser();
+    this.router.navigate(['/booking']);
   }
 
 }
