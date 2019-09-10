@@ -1,0 +1,37 @@
+<div class="center-wrapper login-form ng-scope">
+  <h1 class="txt-branding">{{title}}</h1>
+  <div class="gates2">
+      <form class="brdr rounded-corners general-form ng-pristine ng-valid" name="loginForm" method="post">
+          <div class="inside">
+              <ul>
+                  <li>
+                      <label for="sine-num">Sine Number</label>
+                      <input type="password" value="" class="half" id="sine-num" name="sineNum" maxlength="4" autocomplete="off">
+                  </li>
+                  <li>
+                      <label for="agent-sine">Agent Sine</label>
+                      <input type="text" value="" class="half txt-upper" id="agent-sine" name="agentSine" maxlength="2">
+                  </li>
+                  <li>
+                      <label for="duty-code">Duty Code</label>
+                      <input type="text" value="" class="half txt-upper" id="duty-code" name="dutyCode" maxlength="2">
+                  </li>
+                  <li>
+                      <label for="agent-aaa">AAA</label>
+                      <input type="text" value="" class="half txt-upper" id="agent-aaa" name="aaa" maxlength="3">
+                  </li>
+                  <li>
+                      <label for="agent-empId">EMP ID</label>
+                      <input type="text" value="" class="half txt-upper" id="agent-empId" name="empId" maxlength="7">
+                  </li>
+                  <li>
+                      <input type="button" value="Log In" id="submit-search" name="submit-search" class="btn btn-primary" (click)='loginClick()'>
+                  </li>
+              </ul>
+          </div>
+      </form>
+  </div>
+  <div class="txt-right">
+      <span>Version: <span id="appVersion">{{version}}</span></span>
+  </div>
+</div>
