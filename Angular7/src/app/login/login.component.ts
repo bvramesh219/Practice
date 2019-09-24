@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   loginClick(): void {
     this.commonData.authenticateUser();
-    this.router.navigate(['/booking']);
+    this.router.navigate(['/globalNav']);
   }
 
 }
