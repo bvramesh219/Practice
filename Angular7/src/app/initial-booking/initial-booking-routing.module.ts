@@ -9,8 +9,8 @@ const routes: Routes = [
     path: 'booking',
     component: InitialBookingComponent,
     children: [
-      { path: '', component: SearchComponent },
-      { path: 'results', component: SearchResultsComponent },
+      { path: '', component: SearchComponent }
+     // { path: 'results', component: SearchResultsComponent },
     ]
   }
 ];
