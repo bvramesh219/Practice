@@ -19,6 +19,9 @@
     },
     "upgrade-tool-e2e": {
       "tags": []
+    },
+    "shared": {
+      "tags": []
     }
   }
 }
