@@ -7,6 +7,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { SharedModule } from '@nrwl-nx-workspace/shared'
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,7 +18,8 @@ import { storeFreeze } from 'ngrx-store-freeze';
       { metaReducers: !environment.production ? [storeFreeze] : [] }
     ),
     EffectsModule.forRoot([]),
-    !environment.production ? StoreDevtoolsModule.instrument() : []
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

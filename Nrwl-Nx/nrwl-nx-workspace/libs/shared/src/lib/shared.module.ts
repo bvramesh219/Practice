@@ -4,6 +4,7 @@ import { CountryListComponent } from './components/country-list/country-list.com
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [CountryListComponent]
+  declarations: [CountryListComponent],
+  exports: [CountryListComponent]
 })
 export class SharedModule {}

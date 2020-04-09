@@ -12,7 +12,7 @@
       },
       "root": "apps/initial-booking",
       "sourceRoot": "apps/initial-booking/src",
-      "prefix": "nrwl-nx-workspace",
+      "prefix": "nrwlws",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -131,7 +131,7 @@
       },
       "root": "apps/upgrade-tool",
       "sourceRoot": "apps/upgrade-tool/src",
-      "prefix": "nrwl-nx-workspace",
+      "prefix": "nrwlws",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -245,7 +245,7 @@
       "projectType": "library",
       "root": "libs/shared",
       "sourceRoot": "libs/shared/src",
-      "prefix": "nrwl-nx-workspace",
+      "prefix": "nrwlws",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",

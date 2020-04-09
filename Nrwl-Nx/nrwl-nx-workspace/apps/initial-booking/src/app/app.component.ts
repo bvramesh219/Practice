@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'nrwl-nx-workspace-root',
+  selector: 'nrwlws-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'nrwl-nx-workspace-country-list',
+  selector: 'nrwlws-country-list',
   templateUrl: './country-list.component.html',
   styleUrls: ['./country-list.component.scss']
 })
