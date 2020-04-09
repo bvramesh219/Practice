@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "health-management": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/health-management",
+      "sourceRoot": "apps/health-management/src",
+      "prefix": "family-health",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/health-management",
+            "index": "apps/health-management/src/index.html",
+            "main": "apps/health-management/src/main.ts",
+            "polyfills": "apps/health-management/src/polyfills.ts",
+            "tsConfig": "apps/health-management/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/health-management/src/favicon.ico",
+              "apps/health-management/src/assets"
+            ],
+            "styles": ["apps/health-management/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/health-management/src/environments/environment.ts",
+                  "with": "apps/health-management/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "health-management:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "health-management:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "health-management:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/health-management/tsconfig.app.json",
+              "apps/health-management/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/health-management/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/health-management/jest.config.js",
+            "tsConfig": "apps/health-management/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/health-management/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "health-management-e2e": {
+      "root": "apps/health-management-e2e",
+      "sourceRoot": "apps/health-management-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/health-management-e2e/cypress.json",
+            "tsConfig": "apps/health-management-e2e/tsconfig.e2e.json",
+            "devServerTarget": "health-management:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "health-management:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/health-management-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/health-management-e2e/**"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "health-management"
+}
