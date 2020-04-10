@@ -25,6 +25,9 @@
     "health-management-e2e": {
       "tags": [],
       "implicitDependencies": ["health-management"]
+    },
+    "shared": {
+      "tags": []
     }
   }
 }
