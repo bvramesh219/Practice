@@ -1,0 +1,5 @@
+@import './components/loading-indicator/loading-indicator.theme.scss';
+
+@mixin shared-module-theme($theme, $typography) {
+    @include loading-indicator-theme($theme);
+}

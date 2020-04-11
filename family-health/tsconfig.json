@@ -16,7 +16,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@family-health/shared": ["libs/shared/src/index.ts"]
+      "@family-health/shared": ["libs/shared/src/index.ts"],
+      "@family-health/material": ["libs/material/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

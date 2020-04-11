@@ -25,7 +25,11 @@
               "apps/health-management/src/favicon.ico",
               "apps/health-management/src/assets"
             ],
-            "styles": ["apps/health-management/src/styles.scss"],
+            "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/health-management/src/styles.scss",
+              "apps/health-management/src/scss/theme/health-management-theme.scss"
+            ],
             "scripts": []
           },
           "configurations": {
@@ -147,6 +151,38 @@
             "tsConfig": "libs/shared/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "material": {
+      "projectType": "library",
+      "root": "libs/material",
+      "sourceRoot": "libs/material/src",
+      "prefix": "family-health",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/material/tsconfig.lib.json",
+              "libs/material/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/material/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/material/jest.config.js",
+            "tsConfig": "libs/material/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/material/src/test-setup.ts"
           }
         }
       },

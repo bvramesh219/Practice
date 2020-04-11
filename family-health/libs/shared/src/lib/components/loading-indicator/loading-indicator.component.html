@@ -1,0 +1,7 @@
+<div class="fhm-loading-indicator">
+    <div class="loading-overlay" [class.full-screen]="fullScreen" [class.top-nav]="coverTopNav">
+      <div class="spinner-wrapper" >
+        <mat-progress-spinner [diameter]="fullScreen ? 100 : 70" [strokeWidth]="fullScreen ? 7 : 5" color="primary" mode="indeterminate"></mat-progress-spinner>
+      </div>
+    </div>
+  </div>

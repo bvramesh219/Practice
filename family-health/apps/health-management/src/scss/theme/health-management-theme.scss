@@ -1,0 +1,31 @@
+@import '~@angular/material/theming';
+
+@import './color-palettes.scss';
+
+$custom-typography: mat-typography-config($font-family: '"proxima-nova", "Helvetica Neue", Helvetica, Arial, sans-serif;');
+@include mat-core($custom-typography);
+
+$health-management-primary: mat-palette($fhm-primary);
+$health-management-accent: mat-palette($fhm-accent);
+$health-management-warn: mat-palette($fhm-warn);
+$health-management-custom: mat-palette($fhm-custom);
+
+@function eg-light-theme($primary, $accent, $warn, $custom) {
+    @return (
+        primary: $primary,
+        accent: $accent,
+        warn: $warn,
+        is-dark: false,
+        foreground: $fhm-foreground,
+        background: $fhm-background,
+        custom: $custom
+    );
+}
+
+$health-management-theme: eg-light-theme($health-management-primary, $health-management-accent, $health-management-warn, $health-management-custom);
+$health-management-dark-theme: mat-dark-theme($health-management-primary, $health-management-accent, $health-management-warn);
+
+@include angular-material-theme($health-management-theme);
+
+@import '~libs/shared/src/lib/shared.theme.scss';
+@include shared-module-theme($health-management-theme, $custom-typography);

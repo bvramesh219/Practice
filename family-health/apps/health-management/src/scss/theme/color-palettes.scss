@@ -1,0 +1,173 @@
+$fhm-primary: (
+    50: #fbf7ff, // Envoy Comm Center Reply Background
+    100: #d1c8dd,
+    200: #b3a3c6,
+    300: #957eaf,
+    400: #7e629d,
+    500: #67468c, // Standard Envoy Purple
+    600: #5f3f84,
+    700: #513373, // Envoy Search-Bar
+    800: #4a2f6f,
+    900: #3B2355, // Envoy Sub-Header
+    A100: #c39dff,
+    A200: #a46aff,
+    A400: #8437ff,
+    A700: #751eff,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #ffffff,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #ffffff,
+        A700: #ffffff
+    )
+);
+
+$fhm-accent: (
+    50: #e9f2fc,
+    100: #c9def6,
+    200: #a5c8f1,
+    300: #80b1eb,
+    400: #65a1e6,
+    500: #4a90e2, // Standard Envoy Blue
+    600: #4388df,
+    700: #3a7dda,
+    800: #3273d6,
+    900: #2261cf,
+    A100: #F9FFFE, // Snack Bar Background
+    A200: #7FC3C1,
+    A400: #48A9A6, // Standard Envoy Teal
+    A700: #308F8B,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #ffffff,
+        A700: #ffffff
+    )
+);
+
+$fhm-warn: (
+    50: #FFF4F5, // Snack Bar Danger Background
+    100: #f9d2d7,
+    200: #f5b4bc,
+    300: #f196a1,
+    400: #ee808d,
+    500: #eb6979, // Standard Envoy Red
+    600: #e96171,
+    700: #e55666,
+    800: #e24c5c,
+    900: #dd3b49,
+    A100: #ffd3c1,
+    A200: #ff986d,
+    A400: #ff6c2f, // Standard Envoy Orange
+    A700: #ff4f1d,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #ffffff,
+        A700: #ffffff
+    )
+);
+
+$fhm-custom: (
+    border-default: #DBDBDB,
+    50 : #ceeace,
+    100 : #8dcd8d,
+    200 : #5cb85c, // Standard Envoy Success
+    300 : #54b154,
+    400 : #41a041,
+    500 : #FFFFFF, // Add Additional Color(s) Bellow
+    600 : #F8C416, // Yellow color
+    700 : #FFFFFF,
+    800 : #FFFFFF,
+    900 : #FFFFFF,
+    A100 : #FFFFFF,
+    A200 : #FFFFFF,
+    A400 : #FFFFFF,
+    A700 : #FFFFFF,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000
+    )
+);
+
+$fhm-background: (
+    status-bar: #e0e0e0,
+    app-bar: #f5f5f5,
+    background: #faf9fa,
+    hover: rgba(black, 0.04),
+    card: white,
+    dialog: white,
+    disabled-button: rgba(black, 0.12),
+    raised-button: white,
+    focused-button: rgba(black, 0.12),
+    selected-button: #e0e0e0,
+    selected-disabled-button: #bdbdbd,
+    disabled-button-toggle: #eeeeee,
+    unselected-chip: #e0e0e0,
+    disabled-list-option: #eeeeee,
+    box-shadow-dark: rgba(black, 0.5),
+    box-shadow-medium: rgba(black, 0.25),
+    box-shadow-light: rgba(black, 0.15),
+    box-shadow-very-light: rgba(black, 0.1)
+);
+
+$fhm-foreground: (
+    base: black,
+    border: #cdcdcd,
+    divider: rgba(black, 0.12),
+    dividers: rgba(black, 0.12),
+    disabled: rgba(black, 0.38),
+    disabled-button: rgba(black, 0.26),
+    disabled-text: rgba(black, 0.38),
+    hint-text: rgba(black, 0.38),
+    secondary-text: rgba(black, 0.54),
+    icon: rgba(black, 0.54),
+    icons: rgba(black, 0.54),
+    text: #4A4A4A,
+    text-light: #9b9b9b,
+    slider-min: rgba(black, 0.87),
+    slider-off: rgba(black, 0.26),
+    slider-off-active: rgba(black, 0.38),
+    button-off: rgba(white, 0.50)
+);

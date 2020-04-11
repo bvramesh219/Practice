@@ -1,0 +1,8 @@
+@mixin loading-indicator-theme($theme) {
+    $background: map-get($theme, 'background');
+    .fhm-loading-indicator {
+      .loading-overlay.full-screen {
+        background-color: mat-color($background, 'box-shadow-medium');
+      }
+    }
+  }
