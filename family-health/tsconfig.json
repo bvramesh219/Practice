@@ -18,7 +18,8 @@
     "paths": {
       "@family-health/shared": ["libs/shared/src/index.ts"],
       "@family-health/material": ["libs/material/src/index.ts"],
-      "@family-health/models": ["libs/models/index.ts"]
+      "@family-health/models": ["libs/models/index.ts"],
+      "@family-health/auth": ["libs/auth/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
