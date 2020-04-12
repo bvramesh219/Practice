@@ -1,7 +1,6 @@
 <div class="app-root">
   <fhm-layout>
-    Layout Content
+    <router-outlet></router-outlet>
+    <fhm-loading-indicator *ngIf="isShowingRouteLoadIndicator" [fullScreen]="true" [coverTopNav]="true"></fhm-loading-indicator>
   </fhm-layout>
-  <router-outlet></router-outlet>
-  <fhm-loading-indicator></fhm-loading-indicator>
 </div>
