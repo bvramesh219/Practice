@@ -1,0 +1,27 @@
+@import "~apps/health-management/src/scss/base/mixins";
+
+#loginFormWrapper {
+    min-width: 1140px;
+    min-height: 775px;
+    position: relative;
+
+    .centered-content {
+        @include center-2D;
+
+        #login-form-container {
+            position: relative;
+            width: 950px;
+
+            #loginPanelDiv {
+                width: 50%;
+                position: absolute;
+                left: 50%;
+                min-height: 580px;
+                padding: 0 7%;
+                border-radius: 0;
+                border-top-right-radius: 10px;
+                border-bottom-right-radius: 10px;
+            }
+        }
+    }
+}

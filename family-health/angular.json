@@ -132,7 +132,7 @@
       "projectType": "library",
       "root": "libs/shared",
       "sourceRoot": "libs/shared/src",
-      "prefix": "family-health",
+      "prefix": "fhm",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -164,7 +164,7 @@
       "projectType": "library",
       "root": "libs/material",
       "sourceRoot": "libs/material/src",
-      "prefix": "family-health",
+      "prefix": "fhm",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -196,7 +196,7 @@
       "projectType": "library",
       "root": "libs/models",
       "sourceRoot": "libs/models/src",
-      "prefix": "family-health",
+      "prefix": "fhm",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -228,7 +228,7 @@
       "projectType": "library",
       "root": "libs/auth",
       "sourceRoot": "libs/auth/src",
-      "prefix": "family-health",
+      "prefix": "fhm",
       "architect": {
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
@@ -247,6 +247,38 @@
             "tsConfig": "libs/auth/tsconfig.spec.json",
             "passWithNoTests": true,
             "setupFile": "libs/auth/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "animations": {
+      "projectType": "library",
+      "root": "libs/animations",
+      "sourceRoot": "libs/animations/src",
+      "prefix": "family-health",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/animations/tsconfig.lib.json",
+              "libs/animations/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/animations/**"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/animations/jest.config.js",
+            "tsConfig": "libs/animations/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/animations/src/test-setup.ts"
           }
         }
       },
