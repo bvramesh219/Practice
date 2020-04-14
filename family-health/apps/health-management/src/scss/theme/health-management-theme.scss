@@ -27,5 +27,12 @@ $health-management-dark-theme: mat-dark-theme($health-management-primary, $healt
 
 @include angular-material-theme($health-management-theme);
 
+.fhm-dark {
+    @include angular-material-theme($health-management-dark-theme);
+}
+
+@import '../base/theme.scss';
+@include global-styles-theme($health-management-theme);
+
 @import '~libs/shared/src/lib/shared.theme.scss';
 @include shared-module-theme($health-management-theme, $custom-typography);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { fadeInOut } from '@family-health/animations';
 import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/forms';
 
@@ -10,6 +10,8 @@ import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/for
 })
 export class LoginFormComponent implements OnInit {
 
+  maskUserPassword = true;
+
   loginForm = new FormGroup({
     username: new FormControl('', [Validators.required]),
     password: new FormControl('', [Validators.required])
@@ -18,6 +20,18 @@ export class LoginFormComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  toggleUserPassword(value: boolean) {
+    this.maskUserPassword = !this.maskUserPassword;
+  }
+
+  showLoginButtonAsDisabled(): boolean {
+    return  false;
+  }
+
+  loginFormSubmit() {
+    return;
   }
 
 }

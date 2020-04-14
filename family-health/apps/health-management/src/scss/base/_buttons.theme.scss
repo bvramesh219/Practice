@@ -1,0 +1,13 @@
+@import '~apps/health-management/src/scss/base/mixins';
+
+@mixin buttons-theme($theme) {
+    $primary: map-get($theme, 'primary');
+    $accent: map-get($theme, 'accent');
+
+    .mat-flat-button.mat-primary:not([disabled]) {
+      &:hover {
+        background-color: mat-color($primary, 800);
+      }
+    }
+
+}

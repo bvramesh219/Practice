@@ -27,6 +27,7 @@
             ],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "apps/health-management/src/assets/fonts/material-icons/material-icons.css",
               "apps/health-management/src/styles.scss",
               "apps/health-management/src/scss/theme/health-management-theme.scss"
             ],

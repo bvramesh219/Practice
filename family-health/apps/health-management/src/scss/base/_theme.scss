@@ -1,0 +1,5 @@
+@import './buttons.theme';
+
+@mixin global-styles-theme($theme) {
+    @include buttons-theme($theme);
+}

@@ -6,6 +6,7 @@ import { LoginComponent } from './containers/login/login.component';
 import { Routes as AuthRoutes } from './auth.routes';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MaterialModule } from '@family-health/material';
 
 export const sharedAuthRoutes: Route[] = [
   { path: AuthRoutes.Login.path, component: LoginComponent },
@@ -15,7 +16,8 @@ export const sharedAuthRoutes: Route[] = [
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MaterialModule
   ],
   declarations: [LoginComponent, LoginFormComponent]
 })

@@ -5,7 +5,37 @@
                 <div class="d-flex card-body p-0" [@fadeInOut]>
                     <section class="w-100">
                         <form [formGroup]="loginForm" autocomplete="off" novalidate class="mb-4">
-                            Form
+                            <h3>Log into Health Management</h3>
+                            <div class="form-group">
+                                <mat-form-field [hideRequiredMarker]="true" class="w-100">
+                                    <input matInput placeholder="Enter your email" formControlName="username" required>
+                                    <mat-error>
+                                        <span *ngIf="!loginForm.get('username').valid && loginForm.get('username').touched">
+                                            Please enter a valid email
+                                         </span>
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="form-group">
+                                <mat-form-field [hideRequiredMarker]="true" class="w-100">
+                                    <input matInput placeholder="Enter your password" formControlName="password"
+                    [type]="maskUserPassword ? 'password' : 'text'" required>
+                                     <label matSuffix class="mb-0">
+                                        <input class="d-none" type="checkbox"
+                                        (change)="toggleUserPassword($event.target.checked)"
+                                        [checked]="maskUserPassword">
+                                        <mat-icon class="pointer">{{maskUserPassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                                     </label>
+                                     <mat-error>
+                                        <span *ngIf="!loginForm.get('password').valid && loginForm.get('password').touched">
+                                          Please enter a password
+                                        </span>
+                                      </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <button mat-flat-button color="primary" type="submit" class="w-100" [disabled]="showLoginButtonAsDisabled()" (click)="loginFormSubmit()">
+                                Log In
+                            </button>
                         </form>
                     </section>
                 </div>

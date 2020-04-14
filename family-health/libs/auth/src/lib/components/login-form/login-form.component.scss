@@ -1,5 +1,10 @@
 @import "~apps/health-management/src/scss/base/mixins";
 
+h3 {
+    margin: 50px 0;
+    text-align: center;
+  }
+  
 #loginFormWrapper {
     min-width: 1140px;
     min-height: 775px;
@@ -18,9 +23,7 @@
                 left: 50%;
                 min-height: 580px;
                 padding: 0 7%;
-                border-radius: 0;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
+                border-radius: 10px;
             }
         }
     }
