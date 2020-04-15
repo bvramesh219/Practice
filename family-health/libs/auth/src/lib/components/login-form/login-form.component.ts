@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/for
   animations: [ fadeInOut ]
 })
 export class LoginFormComponent implements OnInit {
+  @Input() loadingStatus: boolean;
 
   maskUserPassword = true;
 

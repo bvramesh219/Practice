@@ -35,6 +35,7 @@
                             </div>
                             <button mat-flat-button color="primary" type="submit" class="w-100" [disabled]="showLoginButtonAsDisabled()" (click)="loginFormSubmit()">
                                 Log In
+                                <fhm-button-spinner color="primary" *ngIf="loadingStatus"></fhm-button-spinner>
                             </button>
                         </form>
                     </section>

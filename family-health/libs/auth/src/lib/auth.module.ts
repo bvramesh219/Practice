@@ -7,6 +7,9 @@ import { Routes as AuthRoutes } from './auth.routes';
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@family-health/material';
+import { SharedModule } from '@family-health/shared';
+import { StoreModule } from '@ngrx/store';
+import { authReducer, initialState as authInitialState } from './+state/auth.reducer';
 
 export const sharedAuthRoutes: Route[] = [
   { path: AuthRoutes.Login.path, component: LoginComponent },
@@ -17,7 +20,11 @@ export const sharedAuthRoutes: Route[] = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    MaterialModule
+    MaterialModule,
+    SharedModule,
+    StoreModule.forFeature('auth', authReducer, {
+      initialState: authInitialState
+    })
   ],
   declarations: [LoginComponent, LoginFormComponent]
 })
