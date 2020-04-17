@@ -19,7 +19,6 @@ export function authReducer(
     state = initialState,
     action: AuthActions
   ): AuthData {
-      debugger;
     switch (action.type) {
         default: {
             return state;
