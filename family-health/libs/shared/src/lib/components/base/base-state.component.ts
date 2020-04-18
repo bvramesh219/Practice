@@ -1,7 +1,7 @@
 import { BaseComponent } from './base.component';
 import { Observable } from 'rxjs';
 import { AppService } from '../../services/app.service';
-import { Store, select } from '@ngrx/store';
+import { Store, select, Action } from '@ngrx/store';
 
 
 export abstract class BaseStateComponent extends BaseComponent {
@@ -20,5 +20,7 @@ export abstract class BaseStateComponent extends BaseComponent {
         return observable;
     }
 
-    
+    protected dispatchAction(action: Action) {
+        this._store.dispatch(action);
+      }
 }

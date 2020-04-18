@@ -1,1 +1,2 @@
-<fhm-login-form [loadingStatus]="(loadingStatus$ | async)"></fhm-login-form>
+<fhm-login-form [loadingStatus]="(loadingStatus$ | async)"
+(loginFormComponentSubmit)="loginFormSubmit($event)"></fhm-login-form>

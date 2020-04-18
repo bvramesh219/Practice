@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { fadeInOut } from '@family-health/animations';
 import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/forms';
+import { LoginModel } from '@family-health/models';
 
 @Component({
   selector: 'fhm-login-form',
@@ -10,6 +11,8 @@ import { FormGroup, FormControl, Validators, EmailValidator } from '@angular/for
 })
 export class LoginFormComponent implements OnInit {
   @Input() loadingStatus: boolean;
+
+  @Output() loginFormComponentSubmit = new EventEmitter<LoginModel>();
 
   maskUserPassword = true;
 
@@ -32,6 +35,17 @@ export class LoginFormComponent implements OnInit {
   }
 
   loginFormSubmit() {
+    if (!this.loginForm.valid){
+      this.loginForm.get('password').markAsTouched();
+      this.loginForm.get('username').markAsTouched();
+
+      return;
+    }
+    const username = this.loginForm.value.username;
+    this.loginFormComponentSubmit.emit({
+      username: !!username ? username.trim() : username,
+      password: this.loginForm.value.password
+    } as LoginModel);
     return;
   }
 

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Route } from '@angular/router';
+import { Route, RouterModule } from '@angular/router';
 
 import { LoginComponent } from './containers/login/login.component';
 import { Routes as AuthRoutes } from './auth.routes';
@@ -15,11 +15,12 @@ export const sharedAuthRoutes: Route[] = [
   { path: AuthRoutes.Login.path, component: LoginComponent },
   { path: '', redirectTo: AuthRoutes.Login.path, pathMatch: 'full' }
 ];
-
+debugger;
 @NgModule({
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    RouterModule,
     MaterialModule,
     SharedModule,
     StoreModule.forFeature('auth', authReducer, {
