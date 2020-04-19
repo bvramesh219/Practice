@@ -10,6 +10,7 @@ import { StoreModule } from '@ngrx/store';
 import { appReducer, metaReducers, rootInitialState } from './+state/app.reducer';
 import { StoreRouterConnectingModule, NavigationActionTiming } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,6 +24,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       appReducer,
       { metaReducers, initialState: rootInitialState }
     ),
+    EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument(),
     StoreRouterConnectingModule.forRoot({
       navigationActionTiming: NavigationActionTiming.PostActivation

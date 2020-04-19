@@ -10,12 +10,13 @@ import { MaterialModule } from '@family-health/material';
 import { SharedModule } from '@family-health/shared';
 import { StoreModule } from '@ngrx/store';
 import { authReducer, initialState as authInitialState } from './+state/auth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './+state/auth.effects';
 
 export const sharedAuthRoutes: Route[] = [
   { path: AuthRoutes.Login.path, component: LoginComponent },
   { path: '', redirectTo: AuthRoutes.Login.path, pathMatch: 'full' }
 ];
-debugger;
 @NgModule({
   imports: [
     CommonModule,
@@ -25,7 +26,8 @@ debugger;
     SharedModule,
     StoreModule.forFeature('auth', authReducer, {
       initialState: authInitialState
-    })
+    }),
+    EffectsModule.forFeature([AuthEffects])
   ],
   declarations: [LoginComponent, LoginFormComponent]
 })
