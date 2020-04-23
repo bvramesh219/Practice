@@ -11,6 +11,7 @@ import { appReducer, metaReducers, rootInitialState } from './+state/app.reducer
 import { StoreRouterConnectingModule, NavigationActionTiming } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { EffectsModule } from '@ngrx/effects';
+import { AuthModule } from '@family-health/auth';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { EffectsModule } from '@ngrx/effects';
     AppRoutingModule,
     LayoutModule,
     SharedModule,
+    AuthModule,
     StoreModule.forRoot(
       appReducer,
       { metaReducers, initialState: rootInitialState }

@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { authReducer, initialState as authInitialState } from './+state/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { AuthEffects } from './+state/auth.effects';
+import { HttpClientModule } from '@angular/common/http';
 
 export const sharedAuthRoutes: Route[] = [
   { path: AuthRoutes.Login.path, component: LoginComponent },
@@ -24,6 +25,7 @@ export const sharedAuthRoutes: Route[] = [
     RouterModule,
     MaterialModule,
     SharedModule,
+    HttpClientModule,
     StoreModule.forFeature('auth', authReducer, {
       initialState: authInitialState
     }),
