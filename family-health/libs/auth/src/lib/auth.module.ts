@@ -22,7 +22,7 @@ export const sharedAuthRoutes: Route[] = [
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    RouterModule,
+    RouterModule.forChild(sharedAuthRoutes),
     MaterialModule,
     SharedModule,
     HttpClientModule,
