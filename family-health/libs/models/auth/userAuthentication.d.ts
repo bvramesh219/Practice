@@ -1,3 +1,6 @@
+import { User } from './user';
+
 export interface UserAuthenticationModel {
-    todo: string
-  }
+  userModel: User;
+  authenticationModel: AuthenticationModel;
+}
