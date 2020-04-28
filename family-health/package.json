@@ -46,6 +46,7 @@
     "@nrwl/angular": "9.2.2",
     "bootstrap": "^4.4.1",
     "core-js": "^2.5.4",
+    "crypto-js": "^4.0.0",
     "rxjs": "^6.5.5",
     "zone.js": "^0.10.2"
   },

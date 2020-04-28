@@ -3,7 +3,7 @@ import { Actions, Effect, ofType } from '@ngrx/effects';
 import { AuthActionTypes } from './auth.actions';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import * as authActions from './auth.actions';
-import { UserService } from '@family-health/shared';
+import { UserService, AuthService } from '@family-health/shared';
 import { UserAuthenticationModel, UserRedirectAction } from '@family-health/models';
 import { of } from 'rxjs';
 
@@ -12,7 +12,8 @@ export class AuthEffects {
 
     constructor(
         private _actions$: Actions,
-        private _userService: UserService
+        private _userService: UserService,
+        private _authService: AuthService
         ) {
 
     }
@@ -24,14 +25,10 @@ export class AuthEffects {
         this._userService.login(action.payload)
           .pipe(
             map((userAuthenticationModel: UserAuthenticationModel) => {
-              debugger;
               const userModel = userAuthenticationModel.userModel;
               const authenticationModel = userAuthenticationModel.authenticationModel;
 
-            if (userModel != null && userModel.token && userModel.redirectAction === UserRedirectAction.TwoFactorSetup) {
-              // Code for Two Factor Setup
-            }
-            else if (userModel != null && userModel.token) {
+            if (userModel != null && userModel.token) {
               return new authActions.LoggedIn(userModel);
             }
             else {
@@ -41,5 +38,17 @@ export class AuthEffects {
             catchError(error => of(new authActions.LoginFail('Sorry, the log-in failed. Please try again.')))
           )
       )
+    );
+
+    @Effect()
+    loggedIn = this._actions$.pipe(
+      ofType(AuthActionTypes.LoggedIn),
+      mergeMap((action: authActions.LoggedIn) => {
+        this._authService.AuthToken = action.payload.token;
+        this._authService.AuthenticatedUser = action.payload;
+        this._authService.ToggleState = null;
+
+        return [new authActions.LoginSuccess(action.payload)];
+      })
     );
 }
