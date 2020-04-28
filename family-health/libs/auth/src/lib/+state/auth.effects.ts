@@ -46,7 +46,6 @@ export class AuthEffects {
       mergeMap((action: authActions.LoggedIn) => {
         this._authService.AuthToken = action.payload.token;
         this._authService.AuthenticatedUser = action.payload;
-        this._authService.ToggleState = null;
 
         return [new authActions.LoginSuccess(action.payload)];
       })
