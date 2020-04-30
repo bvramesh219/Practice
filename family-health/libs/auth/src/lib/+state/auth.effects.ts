@@ -4,7 +4,7 @@ import { AuthActionTypes } from './auth.actions';
 import { mergeMap, map, catchError } from 'rxjs/operators';
 import * as authActions from './auth.actions';
 import { UserService, AuthService } from '@family-health/shared';
-import { UserAuthenticationModel, UserRedirectAction } from '@family-health/models';
+import { UserAuthenticationModel } from '@family-health/models';
 import { of } from 'rxjs';
 
 @Injectable()

@@ -20,7 +20,8 @@
       "@family-health/material": ["libs/material/src/index.ts"],
       "@family-health/models": ["libs/models/index.ts"],
       "@family-health/auth": ["libs/auth/src/index.ts"],
-      "@family-health/animations": ["libs/animations/src/index.ts"]
+      "@family-health/animations": ["libs/animations/src/index.ts"],
+      "@family-health-constants": ["apps/health-management/src/constants.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

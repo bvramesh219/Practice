@@ -1,2 +1,2 @@
-<fhm-login-form [loadingStatus]="(loadingStatus$ | async)"
+<fhm-login-form [loadingStatus]="(loadingStatus$ | async)" *ngIf="!(isLoggedIn$ | async)"
 (loginFormComponentSubmit)="loginFormSubmit($event)"></fhm-login-form>

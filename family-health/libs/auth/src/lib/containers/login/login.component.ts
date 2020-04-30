@@ -14,6 +14,7 @@ import * as authActions from './../../+state/auth.actions';
 })
 export class LoginComponent extends BaseStateComponent implements OnInit {
   loadingStatus$: Observable<boolean>;
+  isLoggedIn$: Observable<boolean>;
 
   constructor(appService: AppService,
     store: Store<AuthState>,) {
@@ -22,6 +23,7 @@ export class LoginComponent extends BaseStateComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadingStatus$ = this.subscribeState(authQuery.getLoadingStatus);
+    this.isLoggedIn$ = this.subscribeState(authQuery.getIsLoggedIn);
   }
 
   loginFormSubmit(loginModel: LoginModel) {
