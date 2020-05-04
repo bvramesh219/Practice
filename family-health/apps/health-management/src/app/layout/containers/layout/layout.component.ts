@@ -65,15 +65,34 @@ export class LayoutComponent extends BaseStateComponent  implements OnInit {
               this._openModal = false;
               this.refreshSession();
             }
-    //         else {
-    //           this.cleanUpSession(false);
-    //         }
+            else {
+              this.cleanUpSession(false);
+            }
           });
         }
 
-    //     if (t === 0) { this.cleanUpSession(true); }
+        if (t === 0) { this.cleanUpSession(true); }
       }
     );
+  }
+
+  cleanUpSession(sessionTimeout: boolean) {
+    this._openModal = false;
+    if (!!this._dialogRef) { this._dialogRef.close(); }
+    this._dialog.closeAll();
+
+    this._sessionTimerService.stopTimer();
+
+    if (!!this._sessionTimerSubscription) {
+      this._sessionTimerSubscription.unsubscribe();
+      this._sessionTimerSubscription = null;
+    }
+
+    this.logout(sessionTimeout);
+  }
+
+  logout(sessionTimeout: boolean) {
+    //this._store.dispatch(new Logout(sessionTimeout));
   }
 
   refreshSession() {

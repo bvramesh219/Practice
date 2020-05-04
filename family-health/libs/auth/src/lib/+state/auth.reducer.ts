@@ -41,6 +41,9 @@ export function authReducer(
         case AuthActionTypes.LoginSuccess: {
             return { ...state, loading: false, user: null, error: '', isLoggedIn: true };
         }
+        case AuthActionTypes.LoadCustomerApplication: {
+            return { ...state, loading: false, user: action.user, error: '', isLoggedIn: true };
+        }
         default: {
             return state;
         }

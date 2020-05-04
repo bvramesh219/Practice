@@ -7,6 +7,8 @@ import { AppConstants } from '@family-health-constants'
   providedIn: 'root'
 })
 export class AuthService {
+  private _toggleState: boolean;
+  redirect: { url: string, lastUser: string } = <any>{};
 
   constructor() { }
 
@@ -28,5 +30,13 @@ export class AuthService {
 
   set AuthenticatedUser(user: User) {
     window.localStorage.setItem(CacheUtility.getEncryptedString('user'), JSON.stringify(user));
+  }
+
+  get ToggleState(): boolean {
+    return this._toggleState;
+  }
+
+  set ToggleState(state: boolean) {
+    this._toggleState = state;
   }
 }
