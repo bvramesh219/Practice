@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {AppConstants} from '@family-health-constants'
 import { Subscription, Observable, interval, Subject } from 'rxjs';
 
+@Injectable({
   providedIn: 'root'
 })
 export class SessionTimerService {

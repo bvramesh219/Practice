@@ -1,1 +1,22 @@
-<p>session-timer-model works!</p>
+<div class="fhm-session-timer-model">
+
+    <h2 mat-dialog-title>
+      Session Expiration
+    </h2>
+  
+    <mat-dialog-content>
+      <P>Your login session is about to expire. Please click Continue to extend your session.</P>
+    </mat-dialog-content>
+  
+    <mat-dialog-actions align="end">
+      <div class="d-flex w-100">
+        <small *ngIf="sessionTimerService.remainSeconds$ | async; let time">
+          Session ending in {{time}} seconds.
+        </small>
+        <div class="eg-button-group-right flex-fill">
+          <button mat-button [mat-dialog-close]="false" class="logout">Logout</button>
+          <button mat-flat-button color="primary" [mat-dialog-close]="true" cdkFocusInitial>Continue</button>
+        </div>
+      </div>
+    </mat-dialog-actions>
+  </div>

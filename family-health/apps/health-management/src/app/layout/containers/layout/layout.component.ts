@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '@family-health/models';
-import { BaseStateComponent, AppService, AuthService } from '@family-health/shared';
+import { BaseStateComponent, AppService, AuthService, StringUtility } from '@family-health/shared';
 import { Store } from '@ngrx/store';
-import { authQuery, SessionTimerService } from '@family-health/auth';
+import { authQuery, SessionTimerService, GetUser } from '@family-health/auth';
 import { Subscription } from 'rxjs';
 import { AppConstants } from '@family-health-constants'
 import { MatDialog } from '@angular/material/dialog';
 import { SessionTimerModelComponent } from '../../components/session-timer-model/session-timer-model.component';
-import { StringUtility } from 'libs/shared/src/lib/utility/string-utility';
 
 @Component({
   selector: 'fhm-layout',
@@ -61,6 +60,7 @@ export class LayoutComponent extends BaseStateComponent  implements OnInit {
           });
 
           this._dialogRef.afterClosed().subscribe(result => {
+            debugger; 
             if (result) {
               this._openModal = false;
               this.refreshSession();
@@ -100,7 +100,7 @@ export class LayoutComponent extends BaseStateComponent  implements OnInit {
 
     const authToken = this._authService.AuthToken;
     if (!StringUtility.isNullOrWhiteSpace(authToken)) {
-      //this._store.dispatch(new GetUser(authToken));
+      this._store.dispatch(new GetUser(authToken));
     }
   }
 

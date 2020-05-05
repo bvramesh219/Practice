@@ -8,7 +8,8 @@ export enum AuthActionTypes {
     LoginSuccess = '[Auth API] Login Success',
     LoginFail = '[Auth API] Login Fail',
     LoadCustomerApplication = '[Auth API] Load Customer Application',
-    Logout = '[TopNav] Logout'
+    Logout = '[TopNav] Logout',
+    GetUser = '[App Component] Get User Object'
 }
 
 export class LoadingDone implements Action {
@@ -45,6 +46,11 @@ export class Logout implements Action {
     constructor(public sessionTimeout?: boolean) { }
 }
 
+export class GetUser implements Action {
+    readonly type = AuthActionTypes.GetUser;
+    constructor(public token: string) { }
+ }
+
 export type AuthActions =
   LoadingDone
   | Login
@@ -52,4 +58,5 @@ export type AuthActions =
   | LoginSuccess
   | LoginFail
   | LoadCustomerApplication
-  | Logout;
+  | Logout
+  | GetUser;

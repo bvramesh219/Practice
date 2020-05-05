@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SessionTimerService } from '@family-health/auth';
 
 @Component({
   selector: 'fhm-session-timer-model',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SessionTimerModelComponent implements OnInit {
 
-  constructor() { }
+  constructor(public sessionTimerService: SessionTimerService) { }
 
   ngOnInit(): void {
   }

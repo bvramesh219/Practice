@@ -6,5 +6,8 @@ export * from './lib/services/user.service';
 export * from './lib/services/api.service';
 export * from './lib/services/auth.service';
 
+export * from './lib/utility/cache.utility';
+export * from './lib/utility/string-utility';
+
 export * from './lib/+state/route.reducer';
 export { BaseStateComponent } from './lib/components/base/base-state.component';

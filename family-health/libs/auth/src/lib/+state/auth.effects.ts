@@ -90,4 +90,6 @@ export class AuthEffects {
       }
     })
   );
+
+//Todo: Write effect for Get User
 }

@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LayoutComponent } from './containers/layout/layout.component';
 import { SessionTimerModelComponent } from './components/session-timer-model/session-timer-model.component';
+import { MaterialModule } from '@family-health/material';
 
 
 
@@ -11,7 +12,8 @@ import { SessionTimerModelComponent } from './components/session-timer-model/ses
     SessionTimerModelComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    MaterialModule
   ],
   exports: [
     LayoutComponent
