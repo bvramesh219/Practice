@@ -3,7 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyHealth.Web.Api", "FamilyHealth.Web.Api\FamilyHealth.Web.Api.csproj", "{C9F0FF32-82C7-4FEB-9271-F9E2534D8249}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FamilyHealth.Data", "FamilyHealth.Data\FamilyHealth.Data.csproj", "{B8922A4D-027D-41B8-B7E8-760F5FF1B76F}"
+EndProject
 Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C9F0FF32-82C7-4FEB-9271-F9E2534D8249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9F0FF32-82C7-4FEB-9271-F9E2534D8249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9F0FF32-82C7-4FEB-9271-F9E2534D8249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9F0FF32-82C7-4FEB-9271-F9E2534D8249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8922A4D-027D-41B8-B7E8-760F5FF1B76F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8922A4D-027D-41B8-B7E8-760F5FF1B76F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8922A4D-027D-41B8-B7E8-760F5FF1B76F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8922A4D-027D-41B8-B7E8-760F5FF1B76F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection

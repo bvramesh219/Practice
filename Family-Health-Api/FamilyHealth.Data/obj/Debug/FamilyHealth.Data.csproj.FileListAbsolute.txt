@@ -1,0 +1,6 @@
+C:\Ramesh\SourceCode\Practice\Family-Health-Api\FamilyHealth.Data\bin\Debug\FamilyHealth.Data.dll
+C:\Ramesh\SourceCode\Practice\Family-Health-Api\FamilyHealth.Data\bin\Debug\FamilyHealth.Data.pdb
+C:\Ramesh\SourceCode\Practice\Family-Health-Api\FamilyHealth.Data\obj\Debug\FamilyHealth.Data.csprojAssemblyReference.cache
+C:\Ramesh\SourceCode\Practice\Family-Health-Api\FamilyHealth.Data\obj\Debug\FamilyHealth.Data.csproj.CoreCompileInputs.cache
+C:\Ramesh\SourceCode\Practice\Family-Health-Api\FamilyHealth.Data\obj\Debug\FamilyHealth.Data.dll
+C:\Ramesh\SourceCode\Practice\Family-Health-Api\FamilyHealth.Data\obj\Debug\FamilyHealth.Data.pdb
