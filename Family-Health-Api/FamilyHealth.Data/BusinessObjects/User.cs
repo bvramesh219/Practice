@@ -15,5 +15,9 @@ namespace FamilyHealth.Data.BusinessObjects
     public class User : IUser
     {
         public Guid UserId { get; protected set; }
+        public User(Guid userId)
+        {
+            this.UserId = userId;
+        }
     }
 }

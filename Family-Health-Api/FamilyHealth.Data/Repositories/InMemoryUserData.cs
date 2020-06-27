@@ -9,14 +9,15 @@ namespace FamilyHealth.Data.Repositories
 {
     public class InMemoryUserData : IUserRepository
     {
-
+        List<User> users;
         public InMemoryUserData()
         {
-
+            users = new List<User>();
+            users.Add(new User(Guid.NewGuid()));
         }
         User IUserRepository.GetByUsername(string username)
         {
-            throw new NotImplementedException();
+            return users.First();
         }
     }
 }
