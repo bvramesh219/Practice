@@ -46,7 +46,7 @@ function sampleExamples() {
         console.log(4);
     }
 
-   // testSetTimeout();
+   testSetTimeout();
 
    var testSum = function(a,b) {
        if(!!b) {
@@ -59,7 +59,6 @@ function sampleExamples() {
 
    var i = testSum(2,3);
    var j = testSum(2)(3);
-debugger;
    var nested = [1, 2, [3, 4, [5, 6, [7, 8, [9, 10]]]]];
    console.log( nested.flat().flat().flat().flat());
 
