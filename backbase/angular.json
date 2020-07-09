@@ -1,0 +1,141 @@
+{
+  "version": 1,
+  "projects": {
+    "peach-tree-bank": {
+      "projectType": "application",
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/peach-tree-bank",
+      "sourceRoot": "apps/peach-tree-bank/src",
+      "prefix": "bb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/peach-tree-bank",
+            "index": "apps/peach-tree-bank/src/index.html",
+            "main": "apps/peach-tree-bank/src/main.ts",
+            "polyfills": "apps/peach-tree-bank/src/polyfills.ts",
+            "tsConfig": "apps/peach-tree-bank/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/peach-tree-bank/src/favicon.ico",
+              "apps/peach-tree-bank/src/assets"
+            ],
+            "styles": ["apps/peach-tree-bank/src/styles.scss"],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/peach-tree-bank/src/environments/environment.ts",
+                  "with": "apps/peach-tree-bank/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "peach-tree-bank:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "peach-tree-bank:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "peach-tree-bank:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/peach-tree-bank/tsconfig.app.json",
+              "apps/peach-tree-bank/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!apps/peach-tree-bank/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "apps/peach-tree-bank/jest.config.js",
+            "tsConfig": "apps/peach-tree-bank/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "apps/peach-tree-bank/src/test-setup.ts"
+          }
+        }
+      }
+    },
+    "peach-tree-bank-e2e": {
+      "root": "apps/peach-tree-bank-e2e",
+      "sourceRoot": "apps/peach-tree-bank-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/peach-tree-bank-e2e/cypress.json",
+            "tsConfig": "apps/peach-tree-bank-e2e/tsconfig.e2e.json",
+            "devServerTarget": "peach-tree-bank:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "peach-tree-bank:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": ["apps/peach-tree-bank-e2e/tsconfig.e2e.json"],
+            "exclude": ["**/node_modules/**", "!apps/peach-tree-bank-e2e/**/*"]
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "jest",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "jest"
+    }
+  },
+  "defaultProject": "peach-tree-bank"
+}
