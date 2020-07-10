@@ -1,0 +1,18 @@
+.bb-money-transfer {
+    height: 701px;
+    width: 908px;
+    background-image: url('../../../assets/background.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -210px;
+    background-position-x: -59px;
+    min-height: 600px;
+
+    .container {
+        display: flex;
+        
+        .left {
+            width: 25%;
+        }
+    }
+}

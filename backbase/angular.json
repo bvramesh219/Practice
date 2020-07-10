@@ -123,6 +123,73 @@
           }
         }
       }
+    },
+    "money-transfer": {
+      "projectType": "library",
+      "root": "libs/money-transfer",
+      "sourceRoot": "libs/money-transfer/src",
+      "prefix": "bb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "assets": [
+              "libs/money-transfer/src/assets"
+            ],
+            "tsConfig": [
+              "libs/money-transfer/tsconfig.lib.json",
+              "libs/money-transfer/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/money-transfer/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/money-transfer/jest.config.js",
+            "tsConfig": "libs/money-transfer/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/money-transfer/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "shared": {
+      "projectType": "library",
+      "root": "libs/shared",
+      "sourceRoot": "libs/shared/src",
+      "prefix": "bb",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/shared/tsconfig.lib.json",
+              "libs/shared/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/shared/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/shared/jest.config.js",
+            "tsConfig": "libs/shared/tsconfig.spec.json",
+            "passWithNoTests": true,
+            "setupFile": "libs/shared/src/test-setup.ts"
+          }
+        }
+      },
+      "schematics": {
+        "@nrwl/angular:component": {
+          "style": "scss"
+        }
+      }
     }
   },
   "cli": {

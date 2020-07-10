@@ -28,6 +28,12 @@
     "peach-tree-bank-e2e": {
       "tags": [],
       "implicitDependencies": ["peach-tree-bank"]
+    },
+    "money-transfer": {
+      "tags": []
+    },
+    "shared": {
+      "tags": []
     }
   }
 }
