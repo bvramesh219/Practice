@@ -1,4 +1,5 @@
 .bb-money-transfer {
+    padding-top: 50px;
     height: 701px;
     width: 908px;
     background-image: url('../../../assets/background.jpg');
@@ -13,6 +14,9 @@
         
         .left {
             width: 25%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     }
 }

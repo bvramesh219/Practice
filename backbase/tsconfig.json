@@ -17,7 +17,8 @@
     "baseUrl": ".",
     "paths": {
       "@backbase/money-transfer": ["libs/money-transfer/src/index.ts"],
-      "@backbase/shared": ["libs/shared/src/index.ts"]
+      "@backbase/shared": ["libs/shared/src/index.ts"],
+      "@backbase/material": ["libs/material/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
