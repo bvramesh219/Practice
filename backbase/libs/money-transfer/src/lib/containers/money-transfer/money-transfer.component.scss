@@ -17,6 +17,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
+
+            .transfer-form {
+                padding: 15px 10px 15px 10px;
+
+                .mat-form-field {
+                    width: 150px;
+
+                    .form-field-invalid .mat-input-element {
+                        caret-color: blue;
+                    }
+                }
+            }
         }
     }
 }

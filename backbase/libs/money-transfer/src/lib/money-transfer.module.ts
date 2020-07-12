@@ -5,6 +5,8 @@ import { Route, RouterModule } from '@angular/router';
 import { Routes as MoneyTransferRoutes } from './money-transfer.routes';
 import { MoneyTransferComponent } from './containers/money-transfer/money-transfer.component';
 import { SharedModule } from '@backbase/shared';
+import { MaterialModule } from '@backbase/material';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export const sharedAuthRoutes: Route[] = [
   { path: MoneyTransferRoutes.Transfer.path, component: MoneyTransferComponent },
@@ -15,7 +17,9 @@ export const sharedAuthRoutes: Route[] = [
   imports: [
     CommonModule,
     RouterModule.forChild(sharedAuthRoutes),
-    SharedModule
+    SharedModule,
+    MaterialModule,
+    ReactiveFormsModule
   ],
   declarations: [MoneyTransferComponent]
 })
