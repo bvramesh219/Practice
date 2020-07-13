@@ -5,6 +5,6 @@ export enum AccountType {
 }
 export interface account {
     accountType: AccountType;
-    accountNumber: string;
+    accountNumber: number;
     balance: number;
 }

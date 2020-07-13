@@ -1,0 +1,25 @@
+<section class="bb-transfer">
+    <form [formGroup]="transferForm" novalidate class="transfer-form">
+        <div class="form-group">
+            <mat-form-field [hideRequiredMarker]="true" class="w-100">
+                <mat-label class="black-text">From Account</mat-label>
+                <input matInput formControlName="fromAccount" placeholder="From Account" required>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field [hideRequiredMarker]="true" class="w-100">
+                <mat-label class="black-text">To Account</mat-label>
+                <input matInput formControlName="toAccount" placeholder="To Account" required>
+            </mat-form-field>
+        </div>
+        <div class="form-group">
+            <mat-form-field [hideRequiredMarker]="true" class="w-100">
+                <mat-label class="black-text">Ammount</mat-label>
+                <input matInput formControlName="ammount" placeholder="Ammount" required>
+            </mat-form-field>
+        </div>
+        <button mat-flat-button color="primary" type="submit" >
+            Submit
+        </button>
+    </form>
+</section>

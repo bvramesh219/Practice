@@ -1,17 +1,17 @@
 import { user } from '@backbase/models';
-import { AppBaseActions } from './app.actions';
+import { AppActions, AppActionTypes } from './app.actions';
 
-export interface AppBaseData {
-  loggedInUser: user
+export interface AppState {
+  data: string
 }
 
-export const appBaseInitialState: AppBaseData = {
-    loggedInUser: null
+export const appBaseInitialState: AppState = {
+    data: null
 }
 
 export function appReducer(
     state = appBaseInitialState,
-    action: AppBaseActions
-  ): AppBaseData {
+    action: AppActions
+  ): AppState {
     return state;
 }

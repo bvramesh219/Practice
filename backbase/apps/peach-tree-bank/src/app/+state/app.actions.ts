@@ -1,12 +1,12 @@
 import { Action } from '@ngrx/store';
+import { user } from '@backbase/models';
 
-export enum AppBaseActionTypes {
-    GetLoggedUser = '[App] Get Logged User',
+export enum AppActionTypes {
+    GetInitialData = '[App] Get Initial Data'
 }
-export class GetLoggedUser implements Action {
-    readonly type = AppBaseActionTypes.GetLoggedUser;
-    constructor() {}
+export class GetInitialData implements Action {
+    readonly type = AppActionTypes.GetInitialData;
 }
 
-export type AppBaseActions =
-GetLoggedUser
+export type AppActions =
+GetInitialData 

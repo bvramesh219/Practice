@@ -1,22 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { BaseStateComponent } from '@backbase/shared';
+import { Store } from '@ngrx/store';
+import { GetLoggedUser } from 'libs/money-transfer/src/+state/transfer.actions';
+import { TRANSFER_QUERY } from 'libs/money-transfer/src/+state/transfer.selectors';
+import { user } from '@backbase/models';
 
 @Component({
   selector: 'bb-money-transfer',
   templateUrl: './money-transfer.component.html',
   styleUrls: ['./money-transfer.component.scss']
 })
-export class MoneyTransferComponent implements OnInit {
+export class MoneyTransferComponent extends BaseStateComponent implements OnInit {
+  loggedUser: user = null;
 
-  constructor() { }
-
-  transferForm = new FormGroup({
-    fromAccount: new FormControl('', [Validators.required]),
-    toAccount: new FormControl('', [Validators.required]),
-    ammount: new FormControl('', [Validators.required])
-  });
-
-  ngOnInit(): void {
+  constructor(
+    store: Store<any>) {
+      super(store);
   }
 
+  ngOnInit(): void {
+    this.dispatchAction(new GetLoggedUser());
+    this.subscribeState(TRANSFER_QUERY.getLoggedUser).subscribe(_loggedUser => {
+      if(!!_loggedUser) {
+        this.loggedUser = _loggedUser;
+      }
+    })
+  }
 }

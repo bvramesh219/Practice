@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { StringUtility } from '../utilities/string.utility';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,5 +17,18 @@ export class BaseService {
   ) {
     this.apiService = apiService;
     this.baseUrl = StringUtility.trimSlashes(baseUrl);
+  }
+
+  protected endPoint(path: string) {
+    if (path.length > 0) {
+      return `${this.baseUrl}/${StringUtility.trimSlashes(path)}`;
+    }
+    else {
+      return this.baseUrl;
+    }
+  }
+
+  protected get<T>(endpoint: string): Observable<T> {
+    return this.apiService.get<T>(this.endPoint(endpoint));
   }
 }
