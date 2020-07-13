@@ -1,9 +1,9 @@
-import { user, account } from '@backbase/models';
+import { User, Account } from '@backbase/models';
 import { TransferActions, TransferActionTypes } from './transfer.actions';
 
 export interface TransferState {
-  loggedInUser: user,
-  recipents: account[]
+  loggedInUser: User,
+  recipents: Account[]
 }
 
 export const transferInitialState: TransferState = {

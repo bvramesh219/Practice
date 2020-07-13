@@ -1,7 +1,7 @@
-import { account } from './account';
+import { Account } from './account';
 
-export interface user {
+export interface User {
     userId: number;
     userName: string;
-    account: account;
+    account: Account;
 }

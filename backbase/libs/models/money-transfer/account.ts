@@ -3,7 +3,7 @@ export enum AccountType {
     Saving = "saving",
     CreditCard= "credit card"
 }
-export interface account {
+export interface Account {
     accountType: AccountType;
     accountNumber: string;
     balance: number;

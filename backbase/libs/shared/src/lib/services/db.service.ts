@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { of } from 'rxjs';
-import { account } from '@backbase/models';
 
 @Injectable({
   providedIn: 'root'

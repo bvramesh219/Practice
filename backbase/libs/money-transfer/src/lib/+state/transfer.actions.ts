@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { user, account } from '@backbase/models';
+import { User, Account } from '@backbase/models';
 
 export enum TransferActionTypes {
     GetLoggedUser = '[Transfer] Get Logged User',
@@ -14,7 +14,7 @@ export class GetLoggedUser implements Action {
 }
 export class GetLoggedUserSuccess implements Action {
     readonly type = TransferActionTypes.GetLoggedUserSuccess;
-    constructor(public payload: user) {}
+    constructor(public payload: User) {}
 }
 export class GetLoggedUserFail implements Action {
     readonly type = TransferActionTypes.GetLoggedUserFail;
@@ -27,7 +27,7 @@ export class GetUserRecipents implements Action {
 }
 export class GetUserRecipentsSuccess implements Action {
     readonly type = TransferActionTypes.GetUserRecipentsSuccess;
-    constructor(public payload: account[]) {}
+    constructor(public payload: Account[]) {}
 }
 export class GetUserRecipentsFail implements Action {
     readonly type = TransferActionTypes.GetUserRecipentsFail;

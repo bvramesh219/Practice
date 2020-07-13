@@ -3,9 +3,15 @@
         <div class="left">
             <bb-box iconPath="assets/icons/arrows.png" title="Make a Transfer" contentWidth=250
                 [headerHeight]=25>
-                <bb-transfer [sender]="loggedUser" [recipents$]="recipentAccounts$"></bb-transfer>
+                <bb-transfer [sender]="loggedUser" [recipents$]="recipentAccounts$"
+                (transactionFormSubmit)="submitTransfer($event)"></bb-transfer>
             </bb-box> 
         </div>
-        <div class="main" > Main </div>
+        <div class="main" > 
+            <bb-box iconPath="assets/icons/briefcase.png" title="Recent Transactions" contentWidth=600
+                [headerHeight]=30>
+               <bb-transactions></bb-transactions>
+            </bb-box>     
+        </div>
     </section>
 </div>

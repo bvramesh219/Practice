@@ -1,6 +1,6 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { user, AccountType, account } from '@backbase/models';
+import { User, Account, TransactionRequest } from '@backbase/models';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -10,13 +10,15 @@ import { Observable } from 'rxjs';
 })
 export class TransferComponent implements OnInit, OnChanges {
 
-  @Input() sender: user = null;
-  @Input() recipents$: Observable<account[]> = null;
+  @Input() sender: User = null;
+  @Input() recipents$: Observable<Account[]> = null;
+
+  @Output() transactionFormSubmit = new EventEmitter<TransactionRequest>();
 
   transferForm = new FormGroup({
     fromAccount: new FormControl('', [Validators.required]),
     toAccount: new FormControl('', [Validators.required]),
-    ammount: new FormControl('', [Validators.required])
+    ammount: new FormControl('', [Validators.required, Validators.min(0)])
   });
 
   constructor() { }
@@ -34,14 +36,30 @@ export class TransferComponent implements OnInit, OnChanges {
       this.transferForm.get('fromAccount').setValue(fromAcctVal);
       this.transferForm.get('fromAccount').disable();
     }
-
-    if(changes.recipents$) {
-     // debugger;
-    }
   }
 
-  displayAccountName(recipent: account): string {
+  displayAccountName(recipent: Account): string {
     return recipent && recipent.accountOwner ? recipent.accountOwner : '';
+  }
+
+  private _isFormValid() {
+    return this.transferForm.valid && this.sender.account.balance > -500;
+  }
+
+  transferFormSubmit() {
+    if (!this._isFormValid()){
+      this.transferForm.get('toAccount').markAsTouched();
+      this.transferForm.get('ammount').markAsTouched();
+
+      return;
+    }
+    const recipent: Account = this.transferForm.get('toAccount').value;
+    this.transactionFormSubmit.emit({
+      fromAccountNumber: this.sender.account.accountNumber,
+      toAccountNumber: recipent.accountNumber,
+      balance: this.transferForm.get('ammount').value
+    } as TransactionRequest);
+    return;
   }
 
 }

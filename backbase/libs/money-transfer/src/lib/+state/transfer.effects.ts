@@ -5,7 +5,7 @@ import { mergeMap, map, catchError, tap } from 'rxjs/operators';
 import * as TransferActions from './transfer.actions';
 import { TransferActionTypes } from './transfer.actions';
 import { UserService } from '@backbase/shared';
-import { user, account } from '@backbase/models';
+import { User, Account } from '@backbase/models';
 
 
 @Injectable()
@@ -24,7 +24,7 @@ export class TransferEffects {
       mergeMap((action: TransferActions.GetLoggedUser) =>
         this._userService.getLoginUser()
           .pipe(
-            map((loggedUser: user) => {
+            map((loggedUser: User) => {
               return new TransferActions.GetLoggedUserSuccess(loggedUser);
             }),
             catchError(error => of(new TransferActions.GetLoggedUserFail("error occured while fetching user")))
@@ -38,7 +38,7 @@ export class TransferEffects {
       mergeMap((action: TransferActions.GetUserRecipents) =>
         this._userService.getRecipents(action.payload)
           .pipe(
-            map((recipents: account[]) => {
+            map((recipents: Account[]) => {
               return new TransferActions.GetUserRecipentsSuccess(recipents);
             }),
             catchError(error => of(new TransferActions.GetUserRecipentsFail("error occured while fetching recipents")))

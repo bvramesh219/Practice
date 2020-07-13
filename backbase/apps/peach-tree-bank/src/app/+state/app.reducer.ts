@@ -1,5 +1,4 @@
-import { user } from '@backbase/models';
-import { AppActions, AppActionTypes } from './app.actions';
+import { AppActions } from './app.actions';
 
 export interface AppState {
   data: string

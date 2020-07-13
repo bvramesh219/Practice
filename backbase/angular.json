@@ -23,7 +23,7 @@
             "aot": true,
             "assets": [
               "apps/peach-tree-bank/src/favicon.ico",
-              "apps/peach-tree-bank/src/assets"
+              "apps/peach-tree-bank/src/assets/"
             ],
             "styles": ["apps/peach-tree-bank/src/styles.scss"],
             "scripts": []

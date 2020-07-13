@@ -1,5 +1,4 @@
 import { Action } from '@ngrx/store';
-import { user } from '@backbase/models';
 
 export enum AppActionTypes {
     GetInitialData = '[App] Get Initial Data'

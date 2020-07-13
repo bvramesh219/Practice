@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 
 import { BaseService } from './base.service';
 import { ApiService } from './api.service';
-import { user, account } from '@backbase/models';
+import { User, Account } from '@backbase/models';
 
 
 @Injectable({
@@ -17,11 +17,11 @@ export class UserService extends BaseService{
     super(apiService, 'user');
   }
 
-  getLoginUser(): Observable<user> {
-    return this.get<user>(`/login-user`);
+  getLoginUser(): Observable<User> {
+    return this.get<User>(`/login-user`);
   }
   
-  getRecipents(userId: number): Observable<account[]> {
-    return this.get<account[]>(`/recipents/${userId}`);
+  getRecipents(userId: number): Observable<Account[]> {
+    return this.get<Account[]>(`/recipents/${userId}`);
   }
 }
