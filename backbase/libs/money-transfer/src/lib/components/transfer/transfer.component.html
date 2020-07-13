@@ -1,21 +1,26 @@
 <section class="bb-transfer">
     <form [formGroup]="transferForm" novalidate class="transfer-form">
         <div class="form-group">
-            <mat-form-field [hideRequiredMarker]="true" class="w-100">
+            <mat-form-field [hideRequiredMarker]="true">
                 <mat-label class="black-text">From Account</mat-label>
-                <input matInput formControlName="fromAccount" placeholder="From Account" required>
+                <input matInput formControlName="fromAccount" class="input-text" placeholder="From Account" required>
             </mat-form-field>
         </div>
         <div class="form-group">
-            <mat-form-field [hideRequiredMarker]="true" class="w-100">
+            <mat-form-field [hideRequiredMarker]="true">
                 <mat-label class="black-text">To Account</mat-label>
-                <input matInput formControlName="toAccount" placeholder="To Account" required>
+                <input matInput formControlName="toAccount" class="input-text" placeholder="To Account" [matAutocomplete]="auto" required>
+                    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayAccountName">
+                        <mat-option *ngFor="let recipent of recipents$ | async" [value]="recipent">
+                            {{recipent.accountOwner}}
+                    </mat-option>
+                </mat-autocomplete>
             </mat-form-field>
         </div>
         <div class="form-group">
-            <mat-form-field [hideRequiredMarker]="true" class="w-100">
+            <mat-form-field [hideRequiredMarker]="true">
                 <mat-label class="black-text">Ammount</mat-label>
-                <input matInput formControlName="ammount" placeholder="Ammount" required>
+                <input matInput formControlName="ammount" class="input-text" placeholder="$ 0.00" required>
             </mat-form-field>
         </div>
         <button mat-flat-button color="primary" type="submit" >

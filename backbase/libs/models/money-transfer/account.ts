@@ -1,10 +1,11 @@
 export enum AccountType {
-    Checking,
-    Saving,
-    CreditCard
+    FreeChecking = "Free Checking",
+    Saving = "saving",
+    CreditCard= "credit card"
 }
 export interface account {
     accountType: AccountType;
-    accountNumber: number;
+    accountNumber: string;
     balance: number;
+    accountOwner: string;
 }

@@ -10,8 +10,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { TransferComponent } from './components/transfer/transfer.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { transferReducer, transferInitialState } from '../+state/transfer.reducer';
-import { TransferEffects } from '../+state/transfer.effects';
+import { transferReducer, transferInitialState } from './+state/transfer.reducer';
+import { TransferEffects } from './+state/transfer.effects';
 
 export const sharedAuthRoutes: Route[] = [
   { path: MoneyTransferRoutes.Transfer.path, component: MoneyTransferComponent },

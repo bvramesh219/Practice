@@ -1,12 +1,14 @@
-import { user } from '@backbase/models';
+import { user, account } from '@backbase/models';
 import { TransferActions, TransferActionTypes } from './transfer.actions';
 
 export interface TransferState {
-  loggedInUser: user
+  loggedInUser: user,
+  recipents: account[]
 }
 
 export const transferInitialState: TransferState = {
-    loggedInUser: null
+    loggedInUser: null,
+    recipents: []
 }
 
 export function transferReducer(
@@ -16,6 +18,9 @@ export function transferReducer(
     switch (action.type) {
       case TransferActionTypes.GetLoggedUserSuccess: {
           return { ...state, loggedInUser: action.payload };
+      }
+      case TransferActionTypes.GetUserRecipentsSuccess: {
+        return { ...state, recipents: action.payload };
       }
     }
     return state;

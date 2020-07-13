@@ -1,9 +1,9 @@
 <div class="bb-money-transfer">
     <section class="container">
         <div class="left">
-            <bb-box iconPath="assets/icons/arrows.png" title="Make a Transfer" contentWidth=180
+            <bb-box iconPath="assets/icons/arrows.png" title="Make a Transfer" contentWidth=250
                 [headerHeight]=25>
-                <bb-transfer></bb-transfer>
+                <bb-transfer [sender]="loggedUser" [recipents$]="recipentAccounts$"></bb-transfer>
             </bb-box> 
         </div>
         <div class="main" > Main </div>

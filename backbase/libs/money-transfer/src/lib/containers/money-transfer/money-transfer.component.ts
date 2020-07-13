@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BaseStateComponent } from '@backbase/shared';
 import { Store } from '@ngrx/store';
-import { GetLoggedUser } from 'libs/money-transfer/src/+state/transfer.actions';
-import { TRANSFER_QUERY } from 'libs/money-transfer/src/+state/transfer.selectors';
-import { user } from '@backbase/models';
+import { user, account } from '@backbase/models';
+import { GetLoggedUser, GetUserRecipents } from '../../+state/transfer.actions';
+import { TRANSFER_QUERY } from '../../+state/transfer.selectors';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'bb-money-transfer',
@@ -12,6 +13,7 @@ import { user } from '@backbase/models';
 })
 export class MoneyTransferComponent extends BaseStateComponent implements OnInit {
   loggedUser: user = null;
+  recipentAccounts$: Observable<account[]> = null;
 
   constructor(
     store: Store<any>) {
@@ -20,10 +22,12 @@ export class MoneyTransferComponent extends BaseStateComponent implements OnInit
 
   ngOnInit(): void {
     this.dispatchAction(new GetLoggedUser());
-    this.subscribeState(TRANSFER_QUERY.getLoggedUser).subscribe(_loggedUser => {
+    this.subscribeState(TRANSFER_QUERY.getLoggedUser).subscribe((_loggedUser: user) => {
       if(!!_loggedUser) {
         this.loggedUser = _loggedUser;
+        this.dispatchAction(new GetUserRecipents(_loggedUser.userId));
       }
-    })
+    });
+    this.recipentAccounts$ = this.subscribeState(TRANSFER_QUERY.getLoggedUserRecipents);
   }
 }
