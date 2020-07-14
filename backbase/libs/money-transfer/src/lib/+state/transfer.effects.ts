@@ -5,7 +5,7 @@ import { mergeMap, map, catchError, tap } from 'rxjs/operators';
 import * as TransferActions from './transfer.actions';
 import { TransferActionTypes } from './transfer.actions';
 import { UserService } from '@backbase/shared';
-import { User, Account } from '@backbase/models';
+import { User, Account, Transaction } from '@backbase/models';
 
 
 @Injectable()
@@ -42,6 +42,20 @@ export class TransferEffects {
               return new TransferActions.GetUserRecipentsSuccess(recipents);
             }),
             catchError(error => of(new TransferActions.GetUserRecipentsFail("error occured while fetching recipents")))
+          )
+      )
+    );
+
+    @Effect()
+    transactions$ = this._actions$.pipe(
+      ofType(TransferActionTypes.GetTransactions),
+      mergeMap((action: TransferActions.GetTransactions) =>
+        this._userService.getTransactions()
+          .pipe(
+            map((transactions: Transaction[]) => {
+              return new TransferActions.GetTransactionsSuccess(transactions);
+            }),
+            catchError(error => of(new TransferActions.GetTransactionsFail("error occured while fetching transactions")))
           )
       )
     );

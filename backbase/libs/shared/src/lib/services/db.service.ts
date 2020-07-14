@@ -18,6 +18,10 @@ export class DbService {
       {accountNumber: "23456", accountType: "Free Checking", balance:200, owner: 2},
       {accountNumber: "34567", accountType: "Free Checking", balance:1000, owner: 3},
       {accountNumber: "45678", accountType: "Free Checking", balance:567, owner: 4}
+    ],
+    Transactions :[
+      {categoryCode: "#12a580"},
+      {categoryCode: "#d51271"}
     ]
   }
 
@@ -29,10 +33,13 @@ export class DbService {
     } else if(url.indexOf("user/recipents")!==-1) {
       const userId: number =  + url.substring(url.lastIndexOf("/")+1);
       return this._getUserRecipents(userId);
+    } else if(url.indexOf("user/transactions")!==-1) {
+      return this._getUserTransactions();
     }
+
   }
 
-  _getLoggedUser() {
+  private _getLoggedUser() {
     const _luser = this._db.users.find(_user => _user.isLogged);
     const _account = this._getAccountByOwnerId(_luser.id);
     
@@ -50,7 +57,7 @@ export class DbService {
 
   }
 
-  _getUserRecipents(userId: number) {
+  private _getUserRecipents(userId: number) {
     const _luser = this._db.users.find(_user => _user.id === userId);
     const _recipents = _luser.recipents;
 
@@ -69,11 +76,18 @@ export class DbService {
     return of(userRecipents as any);
   }
 
-  _getAccountByOwnerId(id) {
+  private _getUserTransactions() {
+    const _rawTransactions = this._db.Transactions;
+
+    return of(_rawTransactions as any);
+  }
+
+  private _getAccountByOwnerId(id) {
     return this._db.Accounts.find(_account => _account.owner === id);
   }
 
-  _getAccountByAccountNumber(accountNumber) {
+  private _getAccountByAccountNumber(accountNumber) {
     return this._db.Accounts.find(_account => _account.accountNumber === accountNumber);
   }
+
 }

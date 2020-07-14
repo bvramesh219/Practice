@@ -1,7 +1,25 @@
 .bb-transactions {
     margin-left: 10px;
+    padding-bottom: 20px;
 
     .utilities {
         height: 70px;
+    }
+
+    .list {
+        table {
+            border-top: solid 1px rgba(0,0,0,0.12);
+            border-left: solid 1px rgba(0,0,0,0.12);
+            border-right: solid 1px rgba(0,0,0,0.12);
+        }
+
+        tr.mat-row {
+            height: 40px;
+        }
+
+        .category {
+            width: 5px;
+            padding: 0;
+        }
     }
 }

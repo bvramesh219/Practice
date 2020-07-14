@@ -10,7 +10,7 @@
         <div class="main" > 
             <bb-box iconPath="assets/icons/briefcase.png" title="Recent Transactions" contentWidth=600
                 [headerHeight]=30>
-               <bb-transactions></bb-transactions>
+               <bb-transactions [transactions] = "userTransactions"></bb-transactions>
             </bb-box>     
         </div>
     </section>

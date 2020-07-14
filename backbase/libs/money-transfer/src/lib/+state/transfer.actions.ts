@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { User, Account } from '@backbase/models';
+import { User, Account, Transaction } from '@backbase/models';
 
 export enum TransferActionTypes {
     GetLoggedUser = '[Transfer] Get Logged User',
@@ -7,7 +7,10 @@ export enum TransferActionTypes {
     GetLoggedUserFail = '[Transfer] Get Logged User Fail',
     GetUserRecipents = '[Transfer] Get User Recipents',
     GetUserRecipentsSuccess = '[Transfer] Get User Recipents Success',
-    GetUserRecipentsFail = '[Transfer] Get User Recipents Fail'
+    GetUserRecipentsFail = '[Transfer] Get User Recipents Fail',
+    GetTransactions = '[Transfer] Get Transactions',
+    GetTransactionsSuccess = '[Transfer] Get Transactions Sucess',
+    GetTransactionsFail = '[Transfer] Get Transactions Fail'
 }
 export class GetLoggedUser implements Action {
     readonly type = TransferActionTypes.GetLoggedUser;
@@ -34,7 +37,20 @@ export class GetUserRecipentsFail implements Action {
     constructor(public payload: any) {}
 }
 
+export class GetTransactions implements Action {
+    readonly type = TransferActionTypes.GetTransactions;
+}
+export class GetTransactionsSuccess implements Action {
+    readonly type = TransferActionTypes.GetTransactionsSuccess;
+    constructor(public payload: Transaction[]) {}
+}
+export class GetTransactionsFail implements Action {
+    readonly type = TransferActionTypes.GetTransactionsFail;
+    constructor(public payload: any) {}
+}
+
 
 export type TransferActions =
 GetLoggedUser | GetLoggedUserSuccess | GetLoggedUserFail |
-GetUserRecipents | GetUserRecipentsSuccess | GetUserRecipentsFail
+GetUserRecipents | GetUserRecipentsSuccess | GetUserRecipentsFail |
+GetTransactions | GetTransactionsSuccess | GetTransactionsFail
