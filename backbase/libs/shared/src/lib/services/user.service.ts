@@ -24,8 +24,4 @@ export class UserService extends BaseService{
   getRecipents(userId: number): Observable<Account[]> {
     return this.get<Account[]>(`/recipents/${userId}`);
   }
-
-  getTransactions(): Observable<Transaction[]> {
-    return this.get<Transaction[]>(`/transactions`);
-  }
 }

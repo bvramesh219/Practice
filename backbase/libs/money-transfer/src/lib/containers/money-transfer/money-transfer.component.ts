@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { User, Account, TransactionRequest, Transaction } from '@backbase/models';
-import { GetLoggedUser, GetUserRecipents, GetTransactions } from '../../+state/transfer.actions';
+import { GetLoggedUser, GetUserRecipents, GetTransactions, SubmitTransaction } from '../../+state/transfer.actions';
 import { TRANSFER_QUERY } from '../../+state/transfer.selectors';
 import { transition } from '@angular/animations';
 
@@ -47,6 +47,6 @@ export class MoneyTransferComponent extends BaseStateComponent implements OnInit
   }
 
   submitTransfer(transReq: TransactionRequest) {
-    console.log(transReq);
+    this.dispatchAction(new SubmitTransaction(transReq));
   }
 }

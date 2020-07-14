@@ -59,7 +59,18 @@ export class TransferComponent implements OnInit, OnChanges {
       toAccountNumber: recipent.accountNumber,
       balance: this.transferForm.get('ammount').value
     } as TransactionRequest);
-    return;
+    //this._resetTransferForm();
+  }
+
+  private _resetTransferForm() {
+    this.transferForm.get('toAccount').setValue('');
+    this.transferForm.get('ammount').setValue('');
+    this.transferForm.get('toAccount').markAsPristine();
+    this.transferForm.get('toAccount').markAsUntouched();
+    this.transferForm.markAsUntouched();
+    this.transferForm.markAsPristine();
+    this.transferForm.reset();
   }
 
 }
+

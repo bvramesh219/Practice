@@ -1,3 +1,4 @@
 export interface Transaction {
-    categoryCode: string
+    categoryCode: string;
+    transactionDate: number
 }

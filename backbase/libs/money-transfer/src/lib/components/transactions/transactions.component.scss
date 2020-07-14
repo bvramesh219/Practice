@@ -4,6 +4,31 @@
 
     .utilities {
         height: 70px;
+        display: flex;
+        justify-content: flex-start;
+        padding: 10px 10px 0px 0px;
+
+        .filters {
+            width: 50%;
+        }
+
+        .sort {
+            font-weight: 500;
+            font-size: 10px;
+
+            mat-button-toggle-group {
+                margin-left: 10px;
+
+                ::ng-deep .mat-button-toggle-label-content {
+                    line-height: 28px;
+                    padding: 0 0px 0px 12px;
+                }
+
+                mat-icon {
+                    font-size: 20px;
+                }
+            }
+        }
     }
 
     .list {
@@ -20,6 +45,13 @@
         .category {
             width: 5px;
             padding: 0;
+        }
+
+        .date {
+            padding: 0 15px;
+            color: #aeaeae; 
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 11px;
         }
     }
 }

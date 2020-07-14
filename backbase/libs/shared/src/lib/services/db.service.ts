@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { of } from 'rxjs';
+import { of, Observable } from 'rxjs';
+import { TransactionRequest } from '@backbase/models';
 
 @Injectable({
   providedIn: 'root'
@@ -20,8 +21,9 @@ export class DbService {
       {accountNumber: "45678", accountType: "Free Checking", balance:567, owner: 4}
     ],
     Transactions :[
-      {categoryCode: "#12a580"},
-      {categoryCode: "#d51271"}
+      {categoryCode: "#12a580", transactionDate: 1476933842000},
+      {categoryCode: "#d51271", transactionDate: 1476926642000},
+      {categoryCode: "#12a580", transactionDate: 1476840242000}
     ]
   }
 
@@ -33,10 +35,26 @@ export class DbService {
     } else if(url.indexOf("user/recipents")!==-1) {
       const userId: number =  + url.substring(url.lastIndexOf("/")+1);
       return this._getUserRecipents(userId);
-    } else if(url.indexOf("user/transactions")!==-1) {
+    } else if(url.indexOf("transaction/transactions")!==-1) {
       return this._getUserTransactions();
     }
 
+  }
+
+  post<T>(url:string, body: any) {
+    if(url.indexOf("transaction")!==-1) {
+      return this._postTransaction(body);
+    } 
+  }
+
+  private _postTransaction(transReq: TransactionRequest) {
+    const _transactions = this._db.Transactions.slice();
+    _transactions.unshift({
+      categoryCode: "#fbbb1b",
+      transactionDate: new Date().getTime()
+    });
+    this._db.Transactions = _transactions;
+    return of(true as any);
   }
 
   private _getLoggedUser() {

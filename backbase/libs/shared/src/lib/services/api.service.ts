@@ -17,4 +17,9 @@ export class ApiService {
     //return this._httpClient.get<T>(endpoint);
    return this._db.get<T>(endpoint);
   }
+
+  post<T>(endpoint: string, body: any): Observable<T> {
+    // return this._httpClient.post<T>(endpoint, body);
+    return this._db.post<T>(endpoint, body);
+  }
 }

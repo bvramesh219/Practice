@@ -31,4 +31,8 @@ export class BaseService {
   protected get<T>(endpoint: string): Observable<T> {
     return this.apiService.get<T>(this.endPoint(endpoint));
   }
+
+  protected post<T>(endpoint: string, body: any): Observable<T> {
+    return this.apiService.post<T>(this.endPoint(endpoint), body);
+  }
 }
