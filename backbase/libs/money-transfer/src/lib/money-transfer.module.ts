@@ -13,6 +13,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { transferReducer, transferInitialState } from './+state/transfer.reducer';
 import { TransferEffects } from './+state/transfer.effects';
 import { TransactionsComponent } from './components/transactions/transactions.component';
+import { ReviewDialogComponent } from './components/review-dialog/review-dialog.component';
 
 export const sharedAuthRoutes: Route[] = [
   { path: MoneyTransferRoutes.Transfer.path, component: MoneyTransferComponent },
@@ -31,7 +32,7 @@ export const sharedAuthRoutes: Route[] = [
     }),
     EffectsModule.forFeature([TransferEffects])
   ],
-  declarations: [MoneyTransferComponent, TransferComponent, TransactionsComponent],
+  declarations: [MoneyTransferComponent, TransferComponent, TransactionsComponent, ReviewDialogComponent],
   providers: [DatePipe]
 })
 export class MoneyTransferModule {}

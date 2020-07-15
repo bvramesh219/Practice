@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User, Account, TransactionRequest } from '@backbase/models';
 import { Observable } from 'rxjs';
-import { ErrorStateMatcher } from '@angular/material/core';
+import { MatDialog } from '@angular/material/dialog';
+import { ReviewDialogComponent, TransactionData } from '../review-dialog/review-dialog.component';
 
 @Component({
   selector: 'bb-transfer',
@@ -22,9 +23,7 @@ export class TransferComponent implements OnInit, OnChanges {
     ammount: new FormControl('', [Validators.required, Validators.min(0)])
   });
 
-  errorMatcher = new CustomErrorStateMatcher();
-
-  constructor() { }
+  constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -39,6 +38,20 @@ export class TransferComponent implements OnInit, OnChanges {
       this.transferForm.get('fromAccount').setValue(fromAcctVal);
       this.transferForm.get('fromAccount').disable();
     }
+  }
+
+  openDialog(transData: TransactionData): void {
+    const dialogRef = this.dialog.open(ReviewDialogComponent, {
+      width: '450px',
+      data: transData
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if(result) {
+        this.transactionFormSubmit.emit(transData.request);
+        this.resetTransferForm()
+      }
+    });
   }
 
   displayAccountName(recipent: Account): string {
@@ -56,13 +69,19 @@ export class TransferComponent implements OnInit, OnChanges {
 
       return;
     }
+
     const recipent: Account = this.transferForm.get('toAccount').value;
-    this.transactionFormSubmit.emit({
-      fromAccountNumber: this.sender.account.accountNumber,
-      toAccountNumber: recipent.accountNumber,
-      balance: this.transferForm.get('ammount').value
-    } as TransactionRequest);
-    this.resetTransferForm();
+    const data: TransactionData = {
+      fromAccount : this.transferForm.get('fromAccount').value,
+      beneficiary: recipent.accountOwner,
+      request: {
+        fromAccountNumber: this.sender.account.accountNumber,
+        toAccountNumber: recipent.accountNumber,
+        balance: this.transferForm.get('ammount').value
+      }
+    }
+    
+    this.openDialog(data);
   }
 
   resetTransferForm() {
@@ -74,9 +93,4 @@ export class TransferComponent implements OnInit, OnChanges {
 
 }
 
-export class CustomErrorStateMatcher implements ErrorStateMatcher {
-  isErrorState(control: FormControl, form: NgForm | FormGroupDirective | null) {
-    return control && control.invalid && control.touched;
-  }
-}
 

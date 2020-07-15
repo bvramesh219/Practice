@@ -1,14 +1,14 @@
 <div class="bb-money-transfer">
     <section class="container">
         <div class="left">
-            <bb-box iconPath="assets/icons/arrows.png" title="Make a Transfer" contentWidth=250
+            <bb-box iconPath="assets/icons/arrows.png" headerTitle="Make a Transfer" contentWidth=250
                 [headerHeight]=25>
                 <bb-transfer [sender]="loggedUser" [recipents$]="recipentAccounts$"
                 (transactionFormSubmit)="submitTransfer($event)"></bb-transfer>
             </bb-box> 
         </div>
         <div class="main" > 
-            <bb-box iconPath="assets/icons/briefcase.png" title="Recent Transactions" contentWidth=600
+            <bb-box iconPath="assets/icons/briefcase.png" headerTitle="Recent Transactions" contentWidth=600
                 [headerHeight]=30>
                <bb-transactions [transactions] = "userTransactions"></bb-transactions>
             </bb-box>     

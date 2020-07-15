@@ -10,7 +10,7 @@ export class BoxComponent implements OnInit, OnChanges {
   @Input() contentWidth:number;
   @Input() headerHeight: number;
   @Input() iconPath: string;
-  @Input() title: string;
+  @Input() headerTitle: string;
   iconHeight: number;
 
   imgSrc = '../../../assets/icons/arrows2.png';

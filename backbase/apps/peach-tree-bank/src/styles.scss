@@ -39,3 +39,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
    color: #666361; 
    font-weight: bold;
 }
+
+.cdk-overlay-container {
+    mat-dialog-container {
+        padding: 0px;
+    }
+}
