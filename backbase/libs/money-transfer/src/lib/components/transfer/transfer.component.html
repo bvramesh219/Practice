@@ -13,7 +13,7 @@
                     <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" [displayWith]="displayAccountName">
                         <mat-option *ngFor="let recipent of recipents$ | async" [value]="recipent">
                             {{recipent.accountOwner}}
-                    </mat-option>
+                        </mat-option>
                 </mat-autocomplete>
             </mat-form-field>
         </div>

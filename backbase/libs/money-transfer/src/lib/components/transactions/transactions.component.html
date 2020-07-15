@@ -29,6 +29,21 @@
                     <img class="merchant-logo" [src]="row.merchantLogo" />
                 </td>
             </ng-container>
+            <ng-container matColumnDef="beneficiary">
+                <td mat-cell *matCellDef="let row" class="beneficiary">
+                    <div class="black-text">
+                        {{row.merchant}}
+                    </div>
+                    <div>
+                        {{row.transactionType}}
+                    </div>
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="amount">
+                <td mat-cell *matCellDef="let row" class="amount black-text">
+                   $ -{{row.amount | number}}
+                </td>
+            </ng-container>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>
     </div>

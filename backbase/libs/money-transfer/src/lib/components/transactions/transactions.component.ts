@@ -11,7 +11,7 @@ import { MatButtonToggleChange } from '@angular/material/button-toggle';
 export class TransactionsComponent implements OnInit, OnChanges {
   @Input() transactions: Transaction[] = [];
 
-  displayedColumns: string[]= ["categoryCode","transactionDate","merchantLogo"];
+  displayedColumns: string[]= ["categoryCode","transactionDate","merchantLogo", "beneficiary", "amount"];
   dataSource: MatTableDataSource<Transaction>;
   sortVaue: string;
   isAsc: boolean;
