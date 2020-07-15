@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { Route, RouterModule } from '@angular/router';
 
 import { Routes as MoneyTransferRoutes } from './money-transfer.routes';
@@ -31,6 +31,7 @@ export const sharedAuthRoutes: Route[] = [
     }),
     EffectsModule.forFeature([TransferEffects])
   ],
-  declarations: [MoneyTransferComponent, TransferComponent, TransactionsComponent]
+  declarations: [MoneyTransferComponent, TransferComponent, TransactionsComponent],
+  providers: [DatePipe]
 })
 export class MoneyTransferModule {}
