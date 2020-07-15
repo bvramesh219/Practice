@@ -1,4 +1,5 @@
 export interface Transaction {
     categoryCode: string;
-    transactionDate: number
+    transactionDate: number;
+    merchantLogo: string;
 }

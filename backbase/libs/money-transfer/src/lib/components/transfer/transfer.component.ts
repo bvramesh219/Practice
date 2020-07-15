@@ -1,7 +1,8 @@
 import { Component, OnInit, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormGroupDirective, NgForm } from '@angular/forms';
 import { User, Account, TransactionRequest } from '@backbase/models';
 import { Observable } from 'rxjs';
+import { ErrorStateMatcher } from '@angular/material/core';
 
 @Component({
   selector: 'bb-transfer',
@@ -20,6 +21,8 @@ export class TransferComponent implements OnInit, OnChanges {
     toAccount: new FormControl('', [Validators.required]),
     ammount: new FormControl('', [Validators.required, Validators.min(0)])
   });
+
+  errorMatcher = new CustomErrorStateMatcher();
 
   constructor() { }
 
@@ -59,18 +62,21 @@ export class TransferComponent implements OnInit, OnChanges {
       toAccountNumber: recipent.accountNumber,
       balance: this.transferForm.get('ammount').value
     } as TransactionRequest);
-    //this._resetTransferForm();
+    this.resetTransferForm();
   }
 
-  private _resetTransferForm() {
+  resetTransferForm() {
     this.transferForm.get('toAccount').setValue('');
     this.transferForm.get('ammount').setValue('');
-    this.transferForm.get('toAccount').markAsPristine();
-    this.transferForm.get('toAccount').markAsUntouched();
     this.transferForm.markAsUntouched();
     this.transferForm.markAsPristine();
-    this.transferForm.reset();
   }
 
+}
+
+export class CustomErrorStateMatcher implements ErrorStateMatcher {
+  isErrorState(control: FormControl, form: NgForm | FormGroupDirective | null) {
+    return control && control.invalid && control.touched;
+  }
 }
 

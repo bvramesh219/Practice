@@ -1,6 +1,7 @@
 <section class="bb-transactions">
     <div class="utilities">
-        <div class="filters"> FILTER</div>
+        <div class="filters"> FILTER
+        </div>
         <div class="sort black-text"> 
             Sort by 
             <mat-button-toggle-group name="sort">
@@ -19,7 +20,14 @@
                     [style.background-color]="row.categoryCode"></td>
             </ng-container>
             <ng-container matColumnDef="transactionDate">
-                <td mat-cell *matCellDef="let row" class="date">{{row.transactionDate | date:'MMM dd'}}</td>
+                <td mat-cell *matCellDef="let row" class="date">
+                    {{row.transactionDate | date:'MMM dd'}}
+                </td>
+            </ng-container>
+            <ng-container matColumnDef="merchantLogo">
+                <td mat-cell *matCellDef="let row">
+                    <img class="merchant-logo" [src]="row.merchantLogo" />
+                </td>
             </ng-container>
               <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
         </table>

@@ -9,5 +9,21 @@
             font-size: 11px;
             color: #bfbdbb;
         }
+
+        .buttons {
+            width: 200px;
+            display: flex;
+            justify-content: flex-end;
+
+            button {
+                background-color: #ee7033;
+                border-width: 0px;
+                height: 25px;
+                color: white;
+                width: 120px;
+                font-size: 11px;
+                border-radius: 3px;
+            }
+        }
     }
 }
