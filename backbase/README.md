@@ -23,9 +23,9 @@ Basically this application have one main application
 
 The above application uses below libraries   
 **material:** All material modules are imported here. By importing this module all material modules will available to application.   
-**models** All reusable models/interfaces are available here.     
-**money-transfer** This is the money-transfer module where all components related to money transfer feature are grouped and available here.     
-**shared** This is shared library, where all reusable common components, services and utilities are available here.
+**models:** All reusable models/interfaces are available here.     
+**money-transfer:** This is the money-transfer module where all components related to money transfer feature are grouped and available here.     
+**shared:** This is shared library, where all reusable common components, services and utilities are available here.
 
 The above structure is created with NRwl/ NX mono repo concept.
 By using NGRX state all the data that is required for application is centrally stored in store and components access through subscribers.
