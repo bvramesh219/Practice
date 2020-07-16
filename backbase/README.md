@@ -1,98 +1,35 @@
-# Backbase
+# Backbase Front End Assignment: Make A Transaction
+This assignment is developed by using below Technologies
+  - Nrwl/nx
+  - Angular
+  - NGRX
+  - Angular Material
+  - Type Script
+  - Scss
 
-This project was generated using [Nx](https://nx.dev).
 
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="450"></p>
+## Application Setup
+1. Checkout application from the github url or download.
+2. Go to the folder where `package.json` there.
+3. run `npm install` command. Make sure you install node.js
 
-🔎 **Nx is a set of Extensible Dev Tools for Monorepos.**
+## Runing Application
+In order to run application run `npm start` command. After that just browser and open `http://localhost:4200/`
 
-## Quick Start & Documentation
+## Application Structure
+Basically this application have one main application
 
-[Nx Documentation](https://nx.dev/angular)
+** peach-tree-bank: ** This is main application where all the components and services has been used.
 
-[10-minute video showing all Nx features](https://nx.dev/angular/getting-started/what-is-nx)
+The above application uses below libraries
+** material: ** All material modules are imported here. By importing this module all material modules will available to application
+** models ** All reusable models/interfaces are available here. 
+** money-transfer** This is the money-transfer module where all components related to money transfer feature are grouped and available here
+** shared ** This is shared library, where all reusable common components, services and utilities are available here.
 
-[Interactive Tutorial](https://nx.dev/angular/tutorial/01-create-application)
+The above structure is created with NRwl/ NX mono repo concept.
+By using NGRX state all the data that is required for application is centrally stored in store and components access through subscribers.
+Angular material components are used in this application
+No Css framework has been used.
+No unit test cases has been written except default test cases those come up with frame work while creating application, components, services and modules.
 
-## Adding capabilities to your workspace
-
-Nx supports many plugins which add capabilities for developing different types of applications and different tools.
-
-These capabilities include generating applications, libraries, etc as well as the devtools to test, and build projects as well.
-
-Below are our core plugins:
-
-- [Angular](https://angular.io)
-  - `ng add @nrwl/angular`
-- [React](https://reactjs.org)
-  - `ng add @nrwl/react`
-- Web (no framework frontends)
-  - `ng add @nrwl/web`
-- [Nest](https://nestjs.com)
-  - `ng add @nrwl/nest`
-- [Express](https://expressjs.com)
-  - `ng add @nrwl/express`
-- [Node](https://nodejs.org)
-  - `ng add @nrwl/node`
-
-There are also many [community plugins](https://nx.dev/nx-community) you could add.
-
-## Generate an application
-
-Run `ng g @nrwl/angular:app my-app` to generate an application.
-
-> You can use any of the plugins above to generate applications as well.
-
-When using Nx, you can create multiple applications and libraries in the same workspace.
-
-## Generate a library
-
-Run `ng g @nrwl/angular:lib my-lib` to generate a library.
-
-> You can also use any of the plugins above to generate libraries as well.
-
-Libraries are sharable across libraries and applications. They can be imported from `@backbase/mylib`.
-
-## Development server
-
-Run `ng serve my-app` for a dev server. Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng g component my-component --project=my-app` to generate a new component.
-
-## Build
-
-Run `ng build my-app` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test my-app` to execute the unit tests via [Jest](https://jestjs.io).
-
-Run `nx affected:test` to execute the unit tests affected by a change.
-
-## Running end-to-end tests
-
-Run `ng e2e my-app` to execute the end-to-end tests via [Cypress](https://www.cypress.io).
-
-Run `nx affected:e2e` to execute the end-to-end tests affected by a change.
-
-## Understand your workspace
-
-Run `nx dep-graph` to see a diagram of the dependencies of your projects.
-
-## Further help
-
-Visit the [Nx Documentation](https://nx.dev/angular) to learn more.
-
-## ☁ Nx Cloud
-
-### Computation Memoization in the Cloud
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-cloud-card.png"></p>
-
-Nx Cloud pairs with Nx in order to enable you to build and test code more rapidly, by up to 10 times. Even teams that are new to Nx can connect to Nx Cloud and start saving time instantly.
-
-Teams using Nx gain the advantage of building full-stack applications with their preferred framework alongside Nx’s advanced code generation and project dependency graph, plus a unified experience for both frontend and backend developers.
-
-Visit [Nx Cloud](https://nx.app/) to learn more.
