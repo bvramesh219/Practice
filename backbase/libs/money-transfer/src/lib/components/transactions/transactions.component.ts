@@ -27,6 +27,9 @@ export class TransactionsComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges): void { 
     if(!!changes.transactions) {
       this._setDatasource(new MatTableDataSource(this.transactions));
+      this.clearFilter();
+      this.filterStr="";
+      this.sortVaue = "";
     }
   }
 

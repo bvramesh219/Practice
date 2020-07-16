@@ -30,26 +30,39 @@ export class TransferComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if(changes.sender) {
-      const fromAcct= this.sender.account;
-      let acctNo = fromAcct.accountNumber;
-      acctNo = acctNo.substring(acctNo.length-4);
-      const fromAcctVal = `${fromAcct.accountType}(${acctNo}) - $${fromAcct.balance}`
-      
-      this.transferForm.get('fromAccount').setValue(fromAcctVal);
-      this.transferForm.get('fromAccount').disable();
+      this._initFromAccount();
     }
+  }
+
+  private _initFromAccount() {
+    const fromAcct= this.sender.account;
+    let acctNo = fromAcct.accountNumber;
+    acctNo = acctNo.substring(acctNo.length-4);
+    const fromAcctVal = `${fromAcct.accountType}(${acctNo}) - $${fromAcct.balance}`
+    
+    this.transferForm.get('fromAccount').setValue(fromAcctVal);
+    this.transferForm.get('fromAccount').disable();
   }
 
   openDialog(transData: TransactionData): void {
     const dialogRef = this.dialog.open(ReviewDialogComponent, {
-      width: '450px',
+      width: '375px',
       data: transData
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if(result) {
         this.transactionFormSubmit.emit(transData.request);
-        this.resetTransferForm()
+        const netBalance = this.sender.account.balance - transData.request.balance;
+        this.sender = {
+          ...this.sender, 
+          account: {
+            ...this.sender.account,
+            balance: netBalance
+          }
+        }
+        this._initFromAccount();
+        this.resetTransferForm();
       }
     });
   }
