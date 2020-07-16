@@ -21,10 +21,10 @@ Basically this application have one main application
 
 **peach-tree-bank:** This is main application where all the components and services has been used.
 
-The above application uses below libraries
-**material:** All material modules are imported here. By importing this module all material modules will available to application. 
-**models** All reusable models/interfaces are available here. 
-**money-transfer** This is the money-transfer module where all components related to money transfer feature are grouped and available here. 
+The above application uses below libraries   
+**material:** All material modules are imported here. By importing this module all material modules will available to application.   
+**models** All reusable models/interfaces are available here.     
+**money-transfer** This is the money-transfer module where all components related to money transfer feature are grouped and available here.     
 **shared** This is shared library, where all reusable common components, services and utilities are available here.
 
 The above structure is created with NRwl/ NX mono repo concept.
