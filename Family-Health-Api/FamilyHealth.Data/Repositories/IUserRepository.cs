@@ -1,4 +1,4 @@
-﻿using FamilyHealth.Data.BusinessObjects;
+﻿using FamilyHealth.Data.DataObjects;
 
 namespace FamilyHealth.Data.Repositories
 {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using FamilyHealth.Data.BusinessObjects;
+using FamilyHealth.Data.DataObjects;
 
 namespace FamilyHealth.Data.Repositories
 {
@@ -13,7 +13,7 @@ namespace FamilyHealth.Data.Repositories
         public InMemoryUserData()
         {
             users = new List<User>();
-            users.Add(new User(Guid.NewGuid()));
+           // users.Add(new User(Guid.NewGuid()));
         }
         User IUserRepository.GetByUsername(string username)
         {
